@@ -1,0 +1,158 @@
+.wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.spinBtn {
+  border-radius: 50%;
+  background: linear-gradient(yellow, #66ff00, #0b8000);
+  padding: 40px;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 100px;
+  border: none;
+  box-shadow: 0 8px 0 #134526;
+  transition: 100ms;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #0e3909;
+  font-size: 25px;
+}
+.spinBtn:active {
+  transform: translateY(4px);
+  box-shadow: 0 4px 0 #134526;
+}
+.spinBtn:focus {
+  outline: none;
+}
+
+.main {
+  height: 400px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+
+.frame {
+  top: 100px;
+  height: 280px;
+}
+
+.screen {
+  position: relative;
+  transform: translateY(140px);
+  perspective: 650px;
+  display: flex;
+  flex: 1;
+  padding: 0 100px;
+}
+
+.reel {
+  transform-style: preserve-3d;
+  width: 150px;
+  height: 150px;
+  transform-origin: center center;
+}
+
+.slot {
+  position: absolute;
+  background-color: rgba(246, 241, 237);
+  outline: 1px solid rgb(229, 229, 229);
+  height: 150px;
+  width: 150px;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+}
+
+.feedback {
+  height: calc(100% - 74px);
+  width: calc(100% - 74px);
+  position: absolute;
+  top: 50px;
+  left: 40px;
+  border-radius: 8px;
+  background-color: #0b8000;
+  color: #fff;
+  padding: 20px 50px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.feedback h3 {
+  font-size: 50px;
+  font-family: "Bangers", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color: #a9ef07;
+  margin: 0;
+}
+.feedbackBtns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 50px;
+}
+.feedbackBtns a,
+.feedbackBtns button {
+  box-sizing: border-box;
+  padding: 16px 32px;
+  text-transform: uppercase;
+  background: rgb(255, 226, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 226, 0, 1) 0%,
+    rgba(255, 162, 0, 1) 100%
+  );
+  color: #000;
+  border: none;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 800;
+  border-radius: 10px;
+}
+
+.slotFrame {
+  box-shadow: inset -3px 3px 22px 22px rgba(0, 0, 0, 0.75);
+  height: calc(100% - 80px);
+  width: calc(100% - 80px);
+  position: absolute;
+  top: 50px;
+  outline: 24px solid rgb(255, 255, 255);
+  left: 40px;
+  border-radius: 8px;
+  border: 3px solid rgb(196, 196, 196);
+}
+
+.slotFrame:before,
+.slotFrame:after {
+  content: "";
+  position: absolute;
+  top: -1%;
+  left: 170px;
+  width: 20px;
+  height: 102%;
+  background-color: #fff;
+  border-left: 3px solid rgb(196, 196, 196);
+  border-right: 3px solid rgb(196, 196, 196);
+}
+
+.slotFrame:after {
+  left: 370px;
+}
