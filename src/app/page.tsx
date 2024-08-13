@@ -1,6 +1,4 @@
-"use client";
-
-import SlotMachine from "@/components/SlotMachine";
+import SlotMachine from "@/components/SlotMachine"
 
 export default function Home() {
   return (
@@ -14,5 +12,5 @@ export default function Home() {
       </header>
       <SlotMachine />
     </main>
-  );
+  )
 }

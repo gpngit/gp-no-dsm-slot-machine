@@ -24,13 +24,17 @@ main {
 }
 
 h1 {
-  font-size: 80px;
+  font-size: 60px;
   line-height: 0.9;
   text-transform: uppercase;
   margin: 0;
   font-family: "Bungee Spice", sans-serif;
   font-palette: --headline;
   filter: drop-shadow(0px 5px 2px #0e0e0e);
+
+  @media (min-width: 1000px) {
+    font-size: 80px;
+  }
 }
 
 @font-palette-values --headline {

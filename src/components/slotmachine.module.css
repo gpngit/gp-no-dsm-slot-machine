@@ -41,6 +41,16 @@
   margin: 0 auto;
   text-align: center;
   position: relative;
+
+  @media (max-width: 1000px) {
+    transform: scale(0.8);
+    margin: -20px 0;
+  }
+
+  @media (max-width: 600px) {
+    transform: scale(0.55);
+    margin: -80px 0;
+  }
 }
 
 .frame {
@@ -54,7 +64,6 @@
   perspective: 650px;
   display: flex;
   flex: 1;
-  padding: 0 100px;
 }
 
 .reel {
@@ -67,7 +76,7 @@
 .slot {
   position: absolute;
   background-color: rgba(246, 241, 237);
-  outline: 1px solid rgb(229, 229, 229);
+  outline: 1px solid rgba(246, 241, 237);
   height: 150px;
   width: 150px;
   font-size: 40px;
@@ -78,11 +87,11 @@
 }
 
 .feedback {
-  height: calc(100% - 74px);
-  width: calc(100% - 74px);
+  height: calc(100% - 75px);
+  width: calc(100% + 125px);
   position: absolute;
   top: 50px;
-  left: 40px;
+  left: -60px;
   border-radius: 8px;
   background-color: #0b8000;
   color: #fff;
@@ -92,6 +101,11 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @media (max-width: 1000px) {
+    padding: 20px;
+    font-size: 24px;
+  }
 }
 .feedback h3 {
   font-size: 50px;
@@ -131,11 +145,11 @@
 .slotFrame {
   box-shadow: inset -3px 3px 22px 22px rgba(0, 0, 0, 0.75);
   height: calc(100% - 80px);
-  width: calc(100% - 80px);
+  width: calc(100% + 120px);
   position: absolute;
   top: 50px;
   outline: 24px solid rgb(255, 255, 255);
-  left: 40px;
+  left: -60px;
   border-radius: 8px;
   border: 3px solid rgb(196, 196, 196);
 }
@@ -155,4 +169,14 @@
 
 .slotFrame:after {
   left: 370px;
+}
+
+.line {
+  position: absolute;
+  top: 55%;
+  height: 2px;
+  background: red;
+  left: -57px;
+  width: calc(100% + 120px);
+  opacity: 0.9;
 }

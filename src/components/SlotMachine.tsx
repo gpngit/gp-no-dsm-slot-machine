@@ -1,11 +1,11 @@
 "use client"
 
 import Image from "next/image"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 import styles from "./slotmachine.module.css"
 
 const SLOTS = 7
-const WIN_PROBABILITY = 0.2 // 80%
+const WIN_PROBABILITY = 0.5 // 50%
 const SLOT_HEIGHT = 150
 const SLOT_ANGLE = 360 / SLOTS
 const REEL_RADIUS = Math.round(SLOT_HEIGHT / 2 / Math.tan(Math.PI / SLOTS))
@@ -16,38 +16,56 @@ const SLOT_TYPES = ["fish", "dead-fish", "star", "tentacle", "co2"]
 function SlotMachine() {
   const [spin, setSpin] = useState(false)
   const [shouldWin, setShouldWin] = useState(Math.random() > WIN_PROBABILITY)
+  const [mounted, mount] = useState(false)
   const [showAfterSpinModal, setShowAfterSpinModal] = useState(false)
+  const complete = useRef(0)
 
   useEffect(() => {
-    if (spin) {
-    }
-  }, [spin])
+    mount(true)
+  }, [])
 
   const doSpin = () => {
     const shouldWin = Math.random() > WIN_PROBABILITY
-    setSpin(false)
     setShowAfterSpinModal(false)
+    complete.current = 0
     setShouldWin(shouldWin)
-    setTimeout(() => {
-      setSpin(true)
-    }, 100)
-    setTimeout(() => {
-      setShowAfterSpinModal(true)
-    }, SPIN_MAX_DURATION * 1000)
+    setSpin(true)
   }
+
+  const handleOnComplete = useCallback(() => {
+    complete.current = complete.current + 1
+    if (complete.current === 3) {
+      setSpin(false)
+      setShowAfterSpinModal(true)
+    }
+  }, [complete])
+
+  if (!mounted) return null
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.main}>
         <div className={styles.frame}>
           <div className={styles.screen}>
-            <Reel spinning={spin} shouldWin={shouldWin} />
-            <Reel spinning={spin} shouldWin={shouldWin} />
-            <Reel spinning={spin} shouldWin={shouldWin} />
+            <Reel
+              spinning={spin}
+              shouldWin={shouldWin}
+              onComplete={handleOnComplete}
+            />
+            <Reel
+              spinning={spin}
+              shouldWin={shouldWin}
+              onComplete={handleOnComplete}
+            />
+            <Reel
+              spinning={spin}
+              shouldWin={shouldWin}
+              onComplete={handleOnComplete}
+            />
           </div>
         </div>
-        <div className={styles.slotFrame}></div>
-
+        <div className={styles.slotFrame} />
+        <div className={styles.line} />
         <div
           className={styles.feedback}
           style={{ display: showAfterSpinModal ? "flex" : "none" }}
@@ -69,8 +87,11 @@ function SlotMachine() {
           </div>
         </div>
       </div>
-
-      <button className={styles.spinBtn} onClick={() => doSpin()}>
+      <button
+        className={styles.spinBtn}
+        onClick={() => doSpin()}
+        disabled={spin}
+      >
         Spinn
       </button>
     </div>
@@ -80,9 +101,11 @@ function SlotMachine() {
 const Reel = ({
   spinning,
   shouldWin,
+  onComplete,
 }: {
   shouldWin: boolean
   spinning: boolean
+  onComplete: () => void
 }) => {
   const [currentAngle, setCurrentAngle] = useState(
     SLOT_ANGLE * getRandomNumber(50, 120)
@@ -92,6 +115,7 @@ const Reel = ({
     <div
       className={styles.reel}
       suppressHydrationWarning
+      onTransitionEnd={onComplete}
       style={{
         transform: spinning ? `rotateX(0deg)` : `rotateX(${currentAngle}deg)`,
         transition: spinning
