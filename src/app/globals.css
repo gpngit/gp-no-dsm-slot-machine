@@ -11,7 +11,10 @@ body {
   min-height: 100vh;
   width: 100%;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  background: linear-gradient(#0b434a, #0c0c0c);
+  background-image: url("/assets/bg-desktop.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #000;
 }
 
 main {
@@ -21,35 +24,70 @@ main {
   justify-content: center;
   width: 100%;
   height: 100%;
+  margin-top: 240px;
+  position: relative;
 }
 
-h1 {
-  font-size: 60px;
-  line-height: 0.9;
-  text-transform: uppercase;
-  margin: 0;
-  font-family: "Bungee Spice", sans-serif;
-  font-palette: --headline;
-  filter: drop-shadow(0px 5px 2px #0e0e0e);
+header {
+  position: absolute;
+  z-index: 1;
+  top: -240px;
 
-  @media (min-width: 1000px) {
-    font-size: 80px;
+  img {
+    @media (max-width: 1000px) {
+      width: 300px;
+      height: auto;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    top: -120px;
   }
 }
 
-@font-palette-values --headline {
-  font-family: "Bungee Spice";
-  override-colors: 0 #0b8000, 1 yellow;
+.header-enter {
+  animation: dropdownBounce 1s ease-out forwards;
+  animation-delay: 1s;
+  transform: translateY(-400%);
 }
 
-h2 {
-  font-family: "Bangers", system-ui;
-  font-weight: 400;
-  font-style: normal;
-  color: #a9ef07;
-  font-size: 40px;
-  margin-top: 2px;
-  margin-bottom: 0;
-  filter: drop-shadow(0px 5px 1px #0e0e0e);
-  transform: rotate(-3deg);
+.header-animation {
+  animation: jelly 1s ease-out forwards;
+  transform: translateY(-400%);
+}
+
+@keyframes jelly {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes dropdownBounce {
+  0% {
+    transform: translateY(-100%);
+  }
+  25% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10%);
+  }
+  75% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5%);
+  }
 }

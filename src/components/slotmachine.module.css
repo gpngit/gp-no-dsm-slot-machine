@@ -8,6 +8,17 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  animation: enterBottom 1s forwards;
+  transform: translateY(200%);
+}
+
+@keyframes enterBottom {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .spinBtn {
@@ -37,7 +48,7 @@
 }
 
 .main {
-  height: 400px;
+  height: 360px;
   margin: 0 auto;
   text-align: center;
   position: relative;
@@ -53,6 +64,18 @@
   }
 }
 
+.main:after {
+  content: " ";
+  height: 700px;
+  top: -100px;
+  left: -270px;
+  position: absolute;
+  z-index: -1;
+  background-image: url("/assets/frame-desktop.png");
+  background-size: 80%;
+  background-repeat: no-repeat;
+}
+
 .frame {
   top: 100px;
   height: 280px;
@@ -66,18 +89,29 @@
   flex: 1;
 }
 
+.screen:after {
+  content: " ";
+  background-color: rgb(35, 35, 35);
+  width: 560px;
+  height: 300px;
+  top: -85px;
+  left: -45px;
+  position: absolute;
+  z-index: -1;
+}
+
 .reel {
   transform-style: preserve-3d;
   width: 150px;
-  height: 150px;
+  height: 130px;
   transform-origin: center center;
+  margin: 0 3px;
 }
 
 .slot {
   position: absolute;
   background-color: rgba(246, 241, 237);
-  outline: 1px solid rgba(246, 241, 237);
-  height: 150px;
+  height: 130px;
   width: 150px;
   font-size: 40px;
   display: flex;
@@ -143,40 +177,17 @@
 }
 
 .slotFrame {
-  box-shadow: inset -3px 3px 22px 22px rgba(0, 0, 0, 0.75);
-  height: calc(100% - 80px);
-  width: calc(100% + 120px);
+  height: 100%;
+  width: calc(100% + 180px);
   position: absolute;
-  top: 50px;
-  outline: 24px solid rgb(255, 255, 255);
-  left: -60px;
-  border-radius: 8px;
-  border: 3px solid rgb(196, 196, 196);
-}
-
-.slotFrame:before,
-.slotFrame:after {
-  content: "";
-  position: absolute;
-  top: -1%;
-  left: 170px;
-  width: 20px;
-  height: 102%;
-  background-color: #fff;
-  border-left: 3px solid rgb(196, 196, 196);
-  border-right: 3px solid rgb(196, 196, 196);
+  top: 43px;
+  left: -70px;
+  background-image: url("/assets/slot-frame.png");
+  background-size: 107%;
+  background-repeat: no-repeat;
+  background-position: -40px -45px;
 }
 
 .slotFrame:after {
-  left: 370px;
-}
-
-.line {
-  position: absolute;
-  top: 55%;
-  height: 2px;
-  background: red;
-  left: -57px;
-  width: calc(100% + 120px);
-  opacity: 0.9;
+  left: 320px;
 }
