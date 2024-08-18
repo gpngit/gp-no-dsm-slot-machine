@@ -12,6 +12,7 @@ export default function Home() {
           height="319"
           layout="responsive"
           className="header-logo"
+          priority
         />
       </header>
       <SlotMachine />
