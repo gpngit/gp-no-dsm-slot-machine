@@ -20,13 +20,13 @@
 }
 @keyframes enterBottomFooter {
   0% {
-    transform: translateY(400%);
+    transform: translateY(800%);
     @media (min-width: 1000px) {
       transform: translateY(600%);
     }
   }
   100% {
-    transform: translateY(120%);
+    transform: translateY(180%);
     @media (min-width: 1000px) {
       transform: translateY(200%);
     }
@@ -44,7 +44,7 @@
   max-width: 800px;
   animation: enterBottomFooter 0.5s forwards;
   animation-delay: 0.5s;
-  transform: translateY(600%);
+  transform: translateY(800%);
   padding-top: 50px;
   gap: 4px;
 
