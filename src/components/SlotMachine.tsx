@@ -36,8 +36,6 @@ function SlotMachine() {
   const complete = useRef(0)
   const currentSlot = useRef<number | false>(false)
 
-  console.log('lol')
-
   useEffect(() => {
     setMounted(true)
   }, [])
