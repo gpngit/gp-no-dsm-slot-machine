@@ -4,9 +4,9 @@ import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./slotmachine.module.css";
 
-const SLOTS = 7;
-const WIN_PROBABILITY = 0.9; // 10%
-const SLOT_HEIGHT = 130;
+const SLOTS = 10;
+const WIN_PROBABILITY = 1; // 10%
+const SLOT_HEIGHT = 180;
 const SLOT_ANGLE = 360 / SLOTS;
 const REEL_RADIUS = Math.round(SLOT_HEIGHT / 2 / Math.tan(Math.PI / SLOTS));
 const SPIN_MAX_DURATION = 5;
@@ -60,6 +60,9 @@ function SlotMachine() {
     <div className={styles.wrapper}>
       <div className={styles.main}>
         <div className={styles.frame}>
+          <Image src="/assets/slot-machine.png" fill alt="Slot machine" />
+        </div>
+        <div className={styles.cutOut}>
           <div className={styles.screen}>
             <Reel
               spinning={spin}
@@ -78,7 +81,6 @@ function SlotMachine() {
             />
           </div>
         </div>
-        <div className={styles.slotFrame} />
         <div
           className={styles.feedback}
           style={{ display: showAfterSpinModal ? "flex" : "none" }}
@@ -136,7 +138,7 @@ const Reel = ({
               2,
               SPIN_MAX_DURATION
             )}s cubic-bezier(.17,.67,.07,.97)`
-          : "transform 1s cubic-bezier(.27,.68,.82,.52)",
+          : "transform 1ms cubic-bezier(.27,.68,.82,.52)",
       }}
     >
       {Array.from({ length: SLOTS }).map((_, i) => (

@@ -22,6 +22,8 @@
 }
 
 .spinBtn {
+  position: absolute;
+  bottom: -150px;
   border-radius: 50%;
   background: linear-gradient(yellow, #66ff00, #0b8000);
   padding: 40px;
@@ -49,6 +51,7 @@
 
 .main {
   height: 360px;
+  width: 500px;
   margin: 0 auto;
   text-align: center;
   position: relative;
@@ -77,47 +80,46 @@
 }
 
 .frame {
-  top: 100px;
-  height: 280px;
+  position: absolute;
+  height: 100%;
+  width: 800px;
+  height: 480px;
+  left: -150px;
+  top: -90px;
+  position: relative;
 }
 
 .screen {
-  position: relative;
+  position: absolute;
   transform: translateY(140px);
   perspective: 650px;
   display: flex;
   flex: 1;
-}
+  left: 126px;
+  top: -55px;
 
-.screen:after {
-  content: " ";
-  background-color: rgb(35, 35, 35);
-  width: 560px;
-  height: 300px;
-  top: -85px;
-  left: -45px;
-  position: absolute;
-  z-index: -1;
+  --slot-width: 116px;
+  --slot-height: 180px;
 }
 
 .reel {
   transform-style: preserve-3d;
-  width: 150px;
-  height: 130px;
+  width: var(--slot-width);
+  height: var(--slot-height);
   transform-origin: center center;
   margin: 0 3px;
 }
 
 .slot {
   position: absolute;
-  background-color: rgba(246, 241, 237);
-  height: 130px;
-  width: 150px;
+  height: var(--slot-height);
+  width: var(--slot-width);
   font-size: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
   backface-visibility: hidden;
+  top: -8px;
 }
 
 .feedback {
@@ -176,18 +178,11 @@
   border-radius: 10px;
 }
 
-.slotFrame {
-  height: 100%;
-  width: calc(100% + 180px);
+.cutOut {
   position: absolute;
-  top: 43px;
-  left: -70px;
-  background-image: url("/assets/slot-frame.png");
-  background-size: 107%;
-  background-repeat: no-repeat;
-  background-position: -40px -45px;
-}
-
-.slotFrame:after {
-  left: 320px;
+  top: -10px;
+  left: -66px;
+  width: 618px;
+  height: 323px;
+  overflow: hidden;
 }
