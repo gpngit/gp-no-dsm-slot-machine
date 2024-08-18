@@ -96,7 +96,7 @@
   display: flex;
   flex: 1;
   left: 126px;
-  top: -55px;
+  top: -63px;
 
   --slot-width: 116px;
   --slot-height: 180px;
@@ -119,7 +119,6 @@
   justify-content: center;
   align-items: center;
   backface-visibility: hidden;
-  top: -8px;
 }
 
 .feedback {
