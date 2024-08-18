@@ -1,6 +1,6 @@
-import Image from "next/image"
-import { FC } from "react"
-import styles from "./prizes.module.css"
+import Image from 'next/image'
+import { FC } from 'react'
+import styles from './prizes.module.css'
 
 export const Prizes: FC = () => {
   return (
@@ -11,7 +11,7 @@ export const Prizes: FC = () => {
             <div className={styles.imageInner}>
               <Image
                 alt="Fiskeskjelett"
-                src={"/assets/slots/fish.png"}
+                src={'/assets/slots/fish.png'}
                 objectFit="contain"
                 className={styles.image}
                 fill
@@ -19,7 +19,7 @@ export const Prizes: FC = () => {
             </div>
             <Image
               alt="3x"
-              src={"/assets/3x.svg"}
+              src={'/assets/3x.svg'}
               className={styles.imageTag}
               width={94}
               height={66}
@@ -35,7 +35,7 @@ export const Prizes: FC = () => {
             <div className={styles.imageInner}>
               <Image
                 alt="co2"
-                src={"/assets/slots/co2.png"}
+                src={'/assets/slots/co2.png'}
                 objectFit="contain"
                 className={styles.image}
                 fill
@@ -43,7 +43,7 @@ export const Prizes: FC = () => {
             </div>
             <Image
               alt="3x"
-              src={"/assets/3x.svg"}
+              src={'/assets/3x.svg'}
               className={styles.imageTag}
               width={94}
               height={66}
@@ -59,7 +59,7 @@ export const Prizes: FC = () => {
             <div className={styles.imageInner}>
               <Image
                 alt="co2"
-                src={"/assets/slots/star.png"}
+                src={'/assets/slots/star.png'}
                 objectFit="contain"
                 className={styles.image}
                 fill
@@ -67,7 +67,7 @@ export const Prizes: FC = () => {
             </div>
             <Image
               alt="3x"
-              src={"/assets/3x.svg"}
+              src={'/assets/3x.svg'}
               className={styles.imageTag}
               width={94}
               height={66}
@@ -85,7 +85,7 @@ export const Prizes: FC = () => {
             <div className={styles.imageInner}>
               <Image
                 alt="anemone"
-                src={"/assets/slots/anemone.png"}
+                src={'/assets/slots/anemone.png'}
                 objectFit="contain"
                 className={styles.image}
                 fill
@@ -93,7 +93,7 @@ export const Prizes: FC = () => {
             </div>
             <Image
               alt="3x"
-              src={"/assets/3x.svg"}
+              src={'/assets/3x.svg'}
               className={styles.imageTag}
               width={94}
               height={66}
@@ -107,7 +107,7 @@ export const Prizes: FC = () => {
             <div className={styles.imageInner}>
               <Image
                 alt="dumbo"
-                src={"/assets/slots/dumbo.png"}
+                src={'/assets/slots/dumbo.png'}
                 objectFit="contain"
                 className={styles.image}
                 fill
@@ -115,7 +115,7 @@ export const Prizes: FC = () => {
             </div>
             <Image
               alt="3x"
-              src={"/assets/3x.svg"}
+              src={'/assets/3x.svg'}
               className={styles.imageTag}
               width={94}
               height={66}
@@ -131,7 +131,7 @@ export const Prizes: FC = () => {
             <div className={styles.imageInner}>
               <Image
                 alt="Nebbhval"
-                src={"/assets/slots/whale.png"}
+                src={'/assets/slots/whale.png'}
                 objectFit="contain"
                 className={styles.image}
                 fill
@@ -139,7 +139,7 @@ export const Prizes: FC = () => {
             </div>
             <Image
               alt="3x"
-              src={"/assets/3x.svg"}
+              src={'/assets/3x.svg'}
               className={styles.imageTag}
               width={94}
               height={66}

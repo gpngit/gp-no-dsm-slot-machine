@@ -1,6 +1,7 @@
-import Image from "next/image"
-import { FC, ReactNode } from "react"
-import styles from "./greenbox.module.css"
+import Image from 'next/image'
+import { FC, ReactNode } from 'react'
+import { Button } from './Button'
+import styles from './greenbox.module.css'
 
 export const GreenBox: FC<{
   children: ReactNode
@@ -31,7 +32,7 @@ export const GreenBox: FC<{
       )}
       {heading && renderHeadingAbove && (
         <h1
-          style={{ marginTop: "-350px", marginBottom: 20 }}
+          style={{ marginTop: '-150px', marginBottom: 20 }}
           className={styles.heading}
         >
           {heading}
@@ -43,10 +44,8 @@ export const GreenBox: FC<{
             <h1 className={styles.heading}>{heading}</h1>
           )}
           <div className={styles.content}>{children}</div>
-          <div className={styles.buttonWrapper}>
-            <button onClick={() => onBtnClick()} className={styles.button}>
-              <span>{btnText}</span>
-            </button>
+          <div className={styles.btnWrapper}>
+            <Button onClick={onBtnClick}>{btnText}</Button>
           </div>
         </div>
       </div>
