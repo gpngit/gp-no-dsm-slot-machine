@@ -26,13 +26,6 @@ header {
   z-index: 1;
   top: -240px;
 
-  img {
-    @media (max-width: 1000px) {
-      width: 300px;
-      height: auto;
-    }
-  }
-
   @media (max-width: 1000px) {
     top: -120px;
   }
