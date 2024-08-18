@@ -68,7 +68,7 @@
 }
 
 .main:after {
-  content: " ";
+  content: ' ';
   height: 700px;
   top: -100px;
   left: -270px;
@@ -91,9 +91,10 @@
 .frameBg {
   position: absolute;
   height: 100%;
-  width: 1200px;
-  height: 800px;
+  width: 1300px;
+  height: 790px;
   opacity: 0;
+  top: -220px;
   animation: scaleUp 0.8s 0.4s forwards;
 }
 
@@ -163,7 +164,7 @@
 }
 .feedback h3 {
   font-size: 50px;
-  font-family: "Bangers", system-ui;
+  font-family: 'Bangers', system-ui;
   font-weight: 400;
   font-style: normal;
   color: #a9ef07;
