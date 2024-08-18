@@ -6,12 +6,12 @@ import { GreenBox } from "./GreenBox"
 import { Prizes } from "./Prizes"
 import styles from "./slotmachine.module.css"
 
-const SLOTS = 10;
-const WIN_PROBABILITY = 1; // 10%
-const SLOT_HEIGHT = 180;
-const SLOT_ANGLE = 360 / SLOTS;
-const REEL_RADIUS = Math.round(SLOT_HEIGHT / 2 / Math.tan(Math.PI / SLOTS));
-const SPIN_MAX_DURATION = 5;
+const SLOTS = 10
+const WIN_PROBABILITY = 1 // 10%
+const SLOT_HEIGHT = 180
+const SLOT_ANGLE = 360 / SLOTS
+const REEL_RADIUS = Math.round(SLOT_HEIGHT / 2 / Math.tan(Math.PI / SLOTS))
+const SPIN_MAX_DURATION = 5
 
 const SLOT_TYPES = ["anemone", "dumbo", "fish", "machine", "star", "whale"]
 
@@ -23,7 +23,7 @@ enum States {
 }
 
 function SlotMachine() {
-  const [pageState, setPageState] = useState(States.PRIZES)
+  const [pageState, setPageState] = useState(States.SPIN)
   const [mounted, setMounted] = useState(false)
   const [spin, setSpin] = useState(false)
   const [shouldWin, setShouldWin] = useState(Math.random() > WIN_PROBABILITY)
@@ -146,7 +146,7 @@ function SlotMachine() {
           Spinn
         </button>
       </div>
-    </>
+    </div>
   )
 }
 
