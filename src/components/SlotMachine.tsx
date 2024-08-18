@@ -6,12 +6,12 @@ import { GreenBox } from "./GreenBox"
 import { Prizes } from "./Prizes"
 import styles from "./slotmachine.module.css"
 
-const SLOTS = 7
-const WIN_PROBABILITY = 0.9 // 10%
-const SLOT_HEIGHT = 130
-const SLOT_ANGLE = 360 / SLOTS
-const REEL_RADIUS = Math.round(SLOT_HEIGHT / 2 / Math.tan(Math.PI / SLOTS))
-const SPIN_MAX_DURATION = 2
+const SLOTS = 10;
+const WIN_PROBABILITY = 1; // 10%
+const SLOT_HEIGHT = 180;
+const SLOT_ANGLE = 360 / SLOTS;
+const REEL_RADIUS = Math.round(SLOT_HEIGHT / 2 / Math.tan(Math.PI / SLOTS));
+const SPIN_MAX_DURATION = 5;
 
 const SLOT_TYPES = ["anemone", "dumbo", "fish", "machine", "star", "whale"]
 
@@ -98,56 +98,48 @@ function SlotMachine() {
   }
 
   return (
-    <>
-      <header id="header" className="header-enter">
-        <Image
-          src="/assets/dsb-logo.png"
-          alt="Deep sea betting logo"
-          width="591"
-          height="319"
-        />
-      </header>
-      <div className={styles.wrapper}>
-        <div className={styles.main}>
-          <div className={styles.frame}>
-            <div className={styles.screen}>
-              <Reel
-                spinning={spin}
-                shouldWin={shouldWin}
-                onComplete={handleOnComplete}
-              />
-              <Reel
-                spinning={spin}
-                shouldWin={shouldWin}
-                onComplete={handleOnComplete}
-              />
-              <Reel
-                spinning={spin}
-                shouldWin={shouldWin}
-                onComplete={handleOnComplete}
-              />
-            </div>
+    <div className={styles.wrapper}>
+      <div className={styles.main}>
+        <div className={styles.frame}>
+          <Image src="/assets/slot-machine.png" fill alt="Slot machine" />
+        </div>
+        <div className={styles.cutOut}>
+          <div className={styles.screen}>
+            <Reel
+              spinning={spin}
+              shouldWin={shouldWin}
+              onComplete={handleOnComplete}
+            />
+            <Reel
+              spinning={spin}
+              shouldWin={shouldWin}
+              onComplete={handleOnComplete}
+            />
+            <Reel
+              spinning={spin}
+              shouldWin={shouldWin}
+              onComplete={handleOnComplete}
+            />
           </div>
-          <div className={styles.slotFrame} />
-          <div
-            className={styles.feedback}
-            style={{ display: showAfterSpinModal ? "flex" : "none" }}
-          >
-            <h3>{shouldWin ? "Gratulerer!" : "Du tapte"}</h3>
-            <p>
-              {shouldWin
-                ? "Du har utryddet en fiskeart! Fortsett å gamble med livet på havbunnen, så kanskje du ødelegger enda mer av det maritime økosystemet!"
-                : "Hva skal det stå hvis man ikke vinner?"}
-            </p>
-            <div className={styles.feedbackBtns}>
-              <button onClick={() => doSpin()}>Spinn igjen!</button>
-              <a
-                href="https://www.greenpeace.org/norway/vaer-med/stopp-gruvedrift-pa-havbunnen/"
-                target="_blank"
-              >
-                Signer oppropet
-              </a>
-            </div>
+        </div>
+        <div
+          className={styles.feedback}
+          style={{ display: showAfterSpinModal ? "flex" : "none" }}
+        >
+          <h3>{shouldWin ? "Gratulerer!" : "Du tapte"}</h3>
+          <p>
+            {shouldWin
+              ? "Du har utryddet en fiskeart! Fortsett å gamble med livet på havbunnen, så kanskje du ødelegger enda mer av det maritime økosystemet!"
+              : "Hva skal det stå hvis man ikke vinner?"}
+          </p>
+          <div className={styles.feedbackBtns}>
+            <button onClick={() => doSpin()}>Spinn igjen!</button>
+            <a
+              href="https://www.greenpeace.org/norway/vaer-med/stopp-gruvedrift-pa-havbunnen/"
+              target="_blank"
+            >
+              Signer oppropet
+            </a>
           </div>
         </div>
         <button className={styles.spinBtn} onClick={doSpin}>
@@ -187,7 +179,7 @@ const Reel = ({
               1,
               SPIN_MAX_DURATION
             )}s cubic-bezier(.17,.67,.07,.97)`
-          : "transform 0.2s cubic-bezier(.27,.68,.82,.52)",
+          : "transform 1ms cubic-bezier(.27,.68,.82,.52)",
       }}
     >
       {Array.from({ length: SLOTS }).map((_, i) => (
