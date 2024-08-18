@@ -74,7 +74,6 @@
   left: -270px;
   position: absolute;
   z-index: -1;
-  background-image: url("/assets/frame-desktop.png");
   background-size: 80%;
   background-repeat: no-repeat;
 }
@@ -89,6 +88,15 @@
   position: relative;
 }
 
+.frameBg {
+  position: absolute;
+  height: 100%;
+  width: 1200px;
+  height: 800px;
+  left: -350px;
+  top: -230px;
+}
+
 .screen {
   position: absolute;
   transform: translateY(140px);
@@ -96,7 +104,7 @@
   display: flex;
   flex: 1;
   left: 126px;
-  top: -55px;
+  top: -63px;
 
   --slot-width: 116px;
   --slot-height: 180px;
@@ -119,7 +127,6 @@
   justify-content: center;
   align-items: center;
   backface-visibility: hidden;
-  top: -8px;
 }
 
 .feedback {

@@ -23,7 +23,7 @@ enum States {
 }
 
 function SlotMachine() {
-  const [pageState, setPageState] = useState(States.PRIZES)
+  const [pageState, setPageState] = useState(States.SPIN)
   const [mounted, setMounted] = useState(false)
   const [spin, setSpin] = useState(false)
   const [shouldWin, setShouldWin] = useState(Math.random() > WIN_PROBABILITY)
@@ -100,6 +100,9 @@ function SlotMachine() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.main}>
+        <div className={styles.frameBg}>
+          <Image src="/assets/frame-desktop.png" fill alt="background" />
+        </div>
         <div className={styles.frame}>
           <Image src="/assets/slot-machine.png" fill alt="Slot machine" />
         </div>
