@@ -99,10 +99,10 @@ function SlotMachine() {
 
   return (
     <div className={styles.wrapper}>
+      <div className={styles.frameBg}>
+        <Image src="/assets/frame-desktop.png" fill alt="background" />
+      </div>
       <div className={styles.main}>
-        <div className={styles.frameBg}>
-          <Image src="/assets/frame-desktop.png" fill alt="background" />
-        </div>
         <div className={styles.frame}>
           <Image src="/assets/slot-machine.png" fill alt="Slot machine" />
         </div>
