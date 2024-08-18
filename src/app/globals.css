@@ -52,7 +52,6 @@ header {
   animation: jelly 1s ease-out forwards;
   transform: translateY(-400%);
 }
-
 @keyframes jelly {
   0% {
     transform: scale(1);
