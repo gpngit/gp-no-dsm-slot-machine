@@ -10,6 +10,10 @@ export default function Home() {
           alt="Deep sea betting logo"
           width="591"
           height="319"
+          layout="responsive"
+          style={{
+            maxWidth: '591px',
+          }}
         />
       </header>
       <SlotMachine />
