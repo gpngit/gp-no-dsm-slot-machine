@@ -7,7 +7,6 @@ import { Prizes } from './Prizes'
 import styles from './slotmachine.module.css'
 
 const SLOTS = 10
-const WIN_PROBABILITY = 1 // 10%
 const SLOT_HEIGHT = 180
 const SLOT_ANGLE = 360 / SLOTS
 const REEL_RADIUS = Math.round(SLOT_HEIGHT / 2 / Math.tan(Math.PI / SLOTS))
@@ -23,13 +22,18 @@ enum States {
 }
 
 function SlotMachine() {
+  const WIN_PROBABILITY = useRef(0.1)
   const [pageState, setPageState] = useState(States.SPIN)
   const [mounted, setMounted] = useState(false)
   const [spin, setSpin] = useState(false)
-  const [shouldWin, setShouldWin] = useState(Math.random() > WIN_PROBABILITY)
+  const [shouldWin, setShouldWin] = useState(
+    Math.random() < WIN_PROBABILITY.current
+  )
+  const [winType, setWinType] = useState(SLOT_TYPES[getRandomNumber(0, 5)])
   const [firstRun, setFirstRun] = useState(true)
   const [showAfterSpinModal, setShowAfterSpinModal] = useState(false)
   const complete = useRef(0)
+  const currentSlot = useRef<number | false>(false)
 
   useEffect(() => {
     setMounted(true)
@@ -39,9 +43,13 @@ function SlotMachine() {
     const header = document.getElementById('header')
     header?.classList.add('header-animation')
     header?.classList.remove('header-enter')
-    setShouldWin(Math.random() > WIN_PROBABILITY)
+    setShouldWin(Math.random() < WIN_PROBABILITY.current)
+    setWinType(SLOT_TYPES[getRandomNumber(0, 5)])
     setFirstRun(false)
     complete.current = 0
+    WIN_PROBABILITY.current = WIN_PROBABILITY.current * 1.5
+    setShowAfterSpinModal(false)
+
     if (firstRun) {
       setSpin(true)
     } else {
@@ -49,20 +57,28 @@ function SlotMachine() {
     }
   }
 
-  const handleOnComplete = useCallback(() => {
-    console.log('is complete')
-    complete.current = complete.current + 1
-    if (complete.current === 3) {
-      const header = document.getElementById('header')
-      header?.classList.remove('header-animation')
+  const handleOnComplete = useCallback(
+    (result: number) => {
+      if (complete.current === 0) currentSlot.current = result
+      if (currentSlot.current !== result) currentSlot.current = false
 
-      if (!spin && !firstRun) {
-        setSpin(true)
-        return (complete.current = 0)
+      complete.current = complete.current + 1
+
+      if (complete.current === 3) {
+        const header = document.getElementById('header')
+        header?.classList.remove('header-animation')
+        complete.current = 0
+
+        if (!spin && !firstRun) {
+          return setSpin(true)
+        } else if (shouldWin || currentSlot.current !== false) {
+          setShowAfterSpinModal(true)
+          WIN_PROBABILITY.current = 0.2
+        }
       }
-      if (shouldWin && spin) setShowAfterSpinModal(true)
-    }
-  }, [complete, shouldWin, spin, firstRun])
+    },
+    [complete, shouldWin, spin, firstRun]
+  )
 
   if (!mounted) return null
 
@@ -111,17 +127,21 @@ function SlotMachine() {
             <Reel
               spinning={spin}
               shouldWin={shouldWin}
+              winType={winType}
               onComplete={handleOnComplete}
             />
             <Reel
               spinning={spin}
               shouldWin={shouldWin}
+              winType={winType}
               onComplete={handleOnComplete}
             />
             <Reel
               spinning={spin}
               shouldWin={shouldWin}
+              winType={winType}
               onComplete={handleOnComplete}
+              excludeWinner
             />
           </div>
           <div
@@ -160,25 +180,31 @@ function SlotMachine() {
 const Reel = ({
   spinning,
   shouldWin,
+  winType,
   onComplete,
+  excludeWinner,
 }: {
   shouldWin: boolean
+  winType: string
   spinning: boolean
-  onComplete: () => void
+  excludeWinner?: boolean
+  onComplete: (winner: number) => void
 }) => {
   const [currentAngle, setCurrentAngle] = useState(
-    SLOT_ANGLE * getRandomNumber(50, 120)
+    SLOT_ANGLE * getRandomNumber(90, 100)
   )
+  const [endSlot, setEndSlot] = useState(getRandomNumber(0, 5))
 
   useEffect(() => {
-    setCurrentAngle(SLOT_ANGLE * getRandomNumber(50, 120))
-  }, [spinning, shouldWin])
+    setCurrentAngle(SLOT_ANGLE * getRandomNumber(90, 100))
+    setEndSlot(getRandomNumber(0, 5))
+  }, [spinning])
 
   return (
     <div
       className={styles.reel}
       suppressHydrationWarning
-      onTransitionEnd={onComplete}
+      onTransitionEnd={() => onComplete(endSlot)}
       style={{
         transform: spinning ? `rotateX(0deg)` : `rotateX(${currentAngle}deg)`,
         transition: spinning
@@ -201,12 +227,18 @@ const Reel = ({
           }}
         >
           {i === 0 && shouldWin ? (
-            <img src={`/assets/slots/co2.png`} alt="co2" width="100" />
+            <Image
+              src={`/assets/slots/${winType}.png`}
+              alt="co2"
+              width="100"
+              height="100"
+            />
           ) : (
-            <img
-              src={`/assets/slots/${SLOT_TYPES[getRandomNumber(0, 5)]}.png`}
+            <Image
+              src={`/assets/slots/${SLOT_TYPES[endSlot]}.png`}
               alt="fish"
-              style={{ maxHeight: '90px', maxWidth: '90px' }}
+              width="100"
+              height="100"
             />
           )}
         </span>
