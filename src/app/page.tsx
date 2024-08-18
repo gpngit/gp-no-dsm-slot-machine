@@ -11,9 +11,8 @@ export default function Home() {
           width="591"
           height="319"
           layout="responsive"
-          style={{
-            maxWidth: '591px',
-          }}
+          className="header-logo"
+          priority
         />
       </header>
       <SlotMachine />

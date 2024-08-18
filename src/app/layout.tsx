@@ -30,6 +30,7 @@ export default function RootLayout({
           src="/assets/bg-desktop.png"
           alt="Deep sea betting logo"
           objectFit="cover"
+          priority
         />
         {children}
       </body>

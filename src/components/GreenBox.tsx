@@ -27,6 +27,7 @@ export const GreenBox: FC<{
             alt="Deep sea betting logo"
             width="591"
             height="319"
+            priority
           />
         </header>
       )}
