@@ -9,25 +9,39 @@
   display: flex;
   justify-content: center;
   flex-direction: row;
-  gap: 30px;
+  gap: 0;
   align-items: flex-start;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    gap: 30px;
+  }
 }
 .part {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0 0 20px 0;
+  margin: 0 0 10px 0;
   flex: 1;
+
+  @media (min-width: 800px) {
+    margin: 0 0 20px 0;
+  }
 }
 .image {
   margin: 0 0 10px 0;
-  width: 170px;
-  height: 170px;
+  width: 120px;
+  height: 120px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (min-width: 800px) {
+    width: 170px;
+    height: 170px;
+  }
 }
 .imageInner {
   margin: 0 0 10px 0;
@@ -46,10 +60,18 @@
 .heading {
   margin: 0 0 6px;
   font-family: var(--font-wimp);
-  font-size: 36px;
+  font-size: 26px;
+
+  @media (min-width: 800px) {
+    font-size: 36px;
+  }
 }
 .content {
   margin: 0;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 24px;
+
+  @media (min-width: 800px) {
+    font-size: 18px;
+  }
 }

@@ -5,9 +5,14 @@ export const Button: FC<{
   children: ReactNode
   size?: 'small' | 'large'
   onClick: () => void
-}> = ({ children, onClick, size = 'large' }) => {
+  wrapperClassName?: string
+}> = ({ children, onClick, wrapperClassName, size = 'large' }) => {
   return (
-    <div className={`${styles.buttonWrapper} ${styles[size]}`}>
+    <div
+      className={`${styles.buttonWrapper} ${styles[size]} ${
+        wrapperClassName ? wrapperClassName : ''
+      }`}
+    >
       <button onClick={onClick} className={styles.button}>
         {children}
       </button>

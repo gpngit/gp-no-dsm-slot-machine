@@ -172,7 +172,9 @@ function SlotMachine() {
         <Button size="small" onClick={() => setPageState(States.ABOUT)}>
           Om kampanjen
         </Button>
-        <Button onClick={() => doSpin()}>Spinn</Button>
+        <Button wrapperClassName={styles.spinBtn} onClick={() => doSpin()}>
+          Spinn
+        </Button>
         <Button
           size="small"
           onClick={() => {

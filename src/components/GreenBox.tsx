@@ -32,7 +32,7 @@ export const GreenBox: FC<{
       )}
       {heading && renderHeadingAbove && (
         <h1
-          style={{ marginTop: '-350px', marginBottom: 20 }}
+          style={{ marginTop: '-150px', marginBottom: 20 }}
           className={styles.heading}
         >
           {heading}

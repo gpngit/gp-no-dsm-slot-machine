@@ -5,13 +5,13 @@
         #ffffff 40px,
         transparent 40px
       )
-      0% 0%/64px 44px no-repeat,
+      0% 0%/0 44px no-repeat,
     radial-gradient(circle at 0 100%, #ffffff 0, #ffffff 40px, transparent 40px)
-      100% 0%/64px 44px no-repeat,
+      100% 0%/0 44px no-repeat,
     radial-gradient(circle at 100% 0, #ffffff 0, #ffffff 40px, transparent 40px)
-      0% 100%/64px 44px no-repeat,
+      0% 100%/0 44px no-repeat,
     radial-gradient(circle at 0 0, #ffffff 0, #ffffff 40px, transparent 40px)
-      100% 100%/64px 44px no-repeat,
+      100% 100%/0 44px no-repeat,
     linear-gradient(#ffffff, #ffffff) 50% 50% / calc(100% - 8px)
       calc(100% - 88px) no-repeat,
     linear-gradient(#ffffff, #ffffff) 50% 50% / calc(100% - 88px)
@@ -56,6 +56,8 @@
   cursor: pointer;
   padding: 16px 38px;
   font-size: 20px;
+
+  box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.45) inset;
 
   @media (min-width: 800px) {
     padding: 16px 55px;
