@@ -23,7 +23,7 @@ enum States {
 }
 
 function SlotMachine() {
-  const [pageState, setPageState] = useState(States.SPIN)
+  const [pageState, setPageState] = useState(States.PRIZES)
   const [mounted, setMounted] = useState(false)
   const [spin, setSpin] = useState(false)
   const [shouldWin, setShouldWin] = useState(Math.random() > WIN_PROBABILITY)
