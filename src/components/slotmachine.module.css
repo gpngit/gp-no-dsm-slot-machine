@@ -18,10 +18,29 @@
     transform: translateY(0);
   }
 }
+@keyframes enterBottomFooter {
+  0% {
+    transform: translateY(200%);
+  }
+  100% {
+    transform: translateY(-250%);
+  }
+}
+
+.footer {
+  position: absolute;
+  bottom: -100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+  animation: enterBottomFooter 0.5s forwards;
+  animation-delay: 0.5s;
+  transform: translateY(200%);
+}
 
 .spinBtn {
-  position: absolute;
-  bottom: -150px;
   border-radius: 50%;
   background: linear-gradient(yellow, #66ff00, #0b8000);
   padding: 40px;
@@ -68,7 +87,7 @@
 }
 
 .main:after {
-  content: " ";
+  content: ' ';
   height: 700px;
   top: -100px;
   left: -270px;
@@ -163,7 +182,7 @@
 }
 .feedback h3 {
   font-size: 50px;
-  font-family: "Bangers", system-ui;
+  font-family: 'Bangers', system-ui;
   font-weight: 400;
   font-style: normal;
   color: #a9ef07;

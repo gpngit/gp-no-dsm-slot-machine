@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { Button } from './Button'
 import { GreenBox } from './GreenBox'
 import { Prizes } from './Prizes'
 import styles from './slotmachine.module.css'
@@ -34,6 +35,23 @@ function SlotMachine() {
   useEffect(() => {
     setMounted(true)
   }, [])
+
+  useEffect(() => {
+    if (pageState === States.SPIN) {
+      const header = document.getElementById('header')
+      header?.classList.add('header-enter')
+      header?.classList.remove('header-animation')
+      header?.classList.remove('header-leave')
+    }
+    if (pageState === States.ABOUT) {
+    }
+    if (pageState === States.PRIZES) {
+      const header = document.getElementById('header')
+      header?.classList.add('header-leave')
+      header?.classList.remove('header-enter')
+      header?.classList.remove('header-animation')
+    }
+  }, [pageState])
 
   const doSpin = () => {
     const header = document.getElementById('header')
@@ -85,7 +103,7 @@ function SlotMachine() {
         btnText="Spill"
         onBtnClick={() => setPageState(States.SPIN)}
         heading="Om kampanjen"
-        withLogo={true}
+        withLogo={false}
       >
         <p>
           Visste du at Norge vil starte gruvedrift på havbunnen i sårbare
@@ -98,62 +116,73 @@ function SlotMachine() {
   }
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.frameBg}>
-        <Image src="/assets/frame-desktop.png" fill alt="background" />
-      </div>
-      <div className={styles.main}>
-        <div className={styles.frame}>
-          <Image src="/assets/slot-machine.png" fill alt="Slot machine" />
+    <>
+      <div className={styles.wrapper}>
+        <div className={styles.frameBg}>
+          <Image src="/assets/frame-desktop.png" fill alt="background" />
         </div>
-        <div className={styles.cutOut}>
-          <div className={styles.screen}>
-            <Reel
-              spinning={spin}
-              shouldWin={shouldWin}
-              onComplete={handleOnComplete}
-            />
-            <Reel
-              spinning={spin}
-              shouldWin={shouldWin}
-              onComplete={handleOnComplete}
-            />
-            <Reel
-              spinning={spin}
-              shouldWin={shouldWin}
-              onComplete={handleOnComplete}
-            />
+        <div className={styles.main}>
+          <div className={styles.frame}>
+            <Image src="/assets/slot-machine.png" fill alt="Slot machine" />
           </div>
-          <div
-            className={styles.feedback}
-            style={{
-              display: showAfterSpinModal ? 'flex' : 'none',
-            }}
-          >
-            <h3>{shouldWin ? 'Gratulerer!' : 'Du tapte'}</h3>
-            <p>
-              {shouldWin
-                ? 'Du har utryddet en fiskeart! Fortsett å gamble med livet på havbunnen, så kanskje du ødelegger enda mer av det maritime økosystemet!'
-                : 'Hva skal det stå hvis man ikke vinner?'}
-            </p>
-            <div className={styles.feedbackBtns}>
-              <button onClick={() => doSpin()}>Spinn igjen!</button>
-              <a
-                href="https://www.greenpeace.org/norway/vaer-med/stopp-gruvedrift-pa-havbunnen/"
-                target="_blank"
-              >
-                Signer oppropet
-              </a>
+          <div className={styles.cutOut}>
+            <div className={styles.screen}>
+              <Reel
+                spinning={spin}
+                shouldWin={shouldWin}
+                onComplete={handleOnComplete}
+              />
+              <Reel
+                spinning={spin}
+                shouldWin={shouldWin}
+                onComplete={handleOnComplete}
+              />
+              <Reel
+                spinning={spin}
+                shouldWin={shouldWin}
+                onComplete={handleOnComplete}
+              />
+            </div>
+            <div
+              className={styles.feedback}
+              style={{
+                display: showAfterSpinModal ? 'flex' : 'none',
+              }}
+            >
+              <h3>{shouldWin ? 'Gratulerer!' : 'Du tapte'}</h3>
+              <p>
+                {shouldWin
+                  ? 'Du har utryddet en fiskeart! Fortsett å gamble med livet på havbunnen, så kanskje du ødelegger enda mer av det maritime økosystemet!'
+                  : 'Hva skal det stå hvis man ikke vinner?'}
+              </p>
+              <div className={styles.feedbackBtns}>
+                <button onClick={() => doSpin()}>Spinn igjen!</button>
+                <a
+                  href="https://www.greenpeace.org/norway/vaer-med/stopp-gruvedrift-pa-havbunnen/"
+                  target="_blank"
+                >
+                  Signer oppropet
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <button onClick={() => setPageState(States.ABOUT)}>Om kampanjen</button>
-      <button className={styles.spinBtn} onClick={doSpin}>
-        Spinn
-      </button>
-      <button onClick={() => setPageState(States.PRIZES)}>Gevinster</button>
-    </div>
+      <div className={styles.footer}>
+        <Button size="small" onClick={() => setPageState(States.ABOUT)}>
+          Om kampanjen
+        </Button>
+        <Button onClick={() => doSpin()}>Spinn</Button>
+        <Button
+          size="small"
+          onClick={() => {
+            setPageState(States.PRIZES)
+          }}
+        >
+          Gevinster
+        </Button>
+      </div>
+    </>
   )
 }
 
