@@ -30,7 +30,12 @@ export const GreenBox: FC<{
         </header>
       )}
       {heading && renderHeadingAbove && (
-        <h1 className={styles.heading}>{heading}</h1>
+        <h1
+          style={{ marginTop: "-350px", marginBottom: 20 }}
+          className={styles.heading}
+        >
+          {heading}
+        </h1>
       )}
       <div className={styles.wrapper}>
         <div className={styles.inner}>

@@ -13,7 +13,7 @@ const SLOT_ANGLE = 360 / SLOTS
 const REEL_RADIUS = Math.round(SLOT_HEIGHT / 2 / Math.tan(Math.PI / SLOTS))
 const SPIN_MAX_DURATION = 5
 
-const SLOT_TYPES = ["anemone", "dumbo", "fish", "machine", "star", "whale"]
+const SLOT_TYPES = ["anemone", "dumbo", "co2", "fish", "star", "whale"]
 
 enum States {
   SPIN,
@@ -23,7 +23,7 @@ enum States {
 }
 
 function SlotMachine() {
-  const [pageState, setPageState] = useState(States.SPIN)
+  const [pageState, setPageState] = useState(States.PRIZES)
   const [mounted, setMounted] = useState(false)
   const [spin, setSpin] = useState(false)
   const [shouldWin, setShouldWin] = useState(Math.random() > WIN_PROBABILITY)
@@ -98,58 +98,68 @@ function SlotMachine() {
   }
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.main}>
-        <div className={styles.frameBg}>
-          <Image src="/assets/frame-desktop.png" fill alt="background" />
-        </div>
-        <div className={styles.frame}>
-          <Image src="/assets/slot-machine.png" fill alt="Slot machine" />
-        </div>
-        <div className={styles.cutOut}>
-          <div className={styles.screen}>
-            <Reel
-              spinning={spin}
-              shouldWin={shouldWin}
-              onComplete={handleOnComplete}
-            />
-            <Reel
-              spinning={spin}
-              shouldWin={shouldWin}
-              onComplete={handleOnComplete}
-            />
-            <Reel
-              spinning={spin}
-              shouldWin={shouldWin}
-              onComplete={handleOnComplete}
-            />
+    <>
+      <header id="header" className="header-enter">
+        <Image
+          src="/assets/dsb-logo.png"
+          alt="Deep sea betting logo"
+          width="591"
+          height="319"
+        />
+      </header>
+      <div className={styles.wrapper}>
+        <div className={styles.main}>
+          <div className={styles.frameBg}>
+            <Image src="/assets/frame-desktop.png" fill alt="background" />
           </div>
-        </div>
-        <div
-          className={styles.feedback}
-          style={{ display: showAfterSpinModal ? "flex" : "none" }}
-        >
-          <h3>{shouldWin ? "Gratulerer!" : "Du tapte"}</h3>
-          <p>
-            {shouldWin
-              ? "Du har utryddet en fiskeart! Fortsett å gamble med livet på havbunnen, så kanskje du ødelegger enda mer av det maritime økosystemet!"
-              : "Hva skal det stå hvis man ikke vinner?"}
-          </p>
-          <div className={styles.feedbackBtns}>
-            <button onClick={() => doSpin()}>Spinn igjen!</button>
-            <a
-              href="https://www.greenpeace.org/norway/vaer-med/stopp-gruvedrift-pa-havbunnen/"
-              target="_blank"
-            >
-              Signer oppropet
-            </a>
+          <div className={styles.frame}>
+            <Image src="/assets/slot-machine.png" fill alt="Slot machine" />
           </div>
+          <div className={styles.cutOut}>
+            <div className={styles.screen}>
+              <Reel
+                spinning={spin}
+                shouldWin={shouldWin}
+                onComplete={handleOnComplete}
+              />
+              <Reel
+                spinning={spin}
+                shouldWin={shouldWin}
+                onComplete={handleOnComplete}
+              />
+              <Reel
+                spinning={spin}
+                shouldWin={shouldWin}
+                onComplete={handleOnComplete}
+              />
+            </div>
+          </div>
+          <div
+            className={styles.feedback}
+            style={{ display: showAfterSpinModal ? "flex" : "none" }}
+          >
+            <h3>{shouldWin ? "Gratulerer!" : "Du tapte"}</h3>
+            <p>
+              {shouldWin
+                ? "Du har utryddet en fiskeart! Fortsett å gamble med livet på havbunnen, så kanskje du ødelegger enda mer av det maritime økosystemet!"
+                : "Hva skal det stå hvis man ikke vinner?"}
+            </p>
+            <div className={styles.feedbackBtns}>
+              <button onClick={() => doSpin()}>Spinn igjen!</button>
+              <a
+                href="https://www.greenpeace.org/norway/vaer-med/stopp-gruvedrift-pa-havbunnen/"
+                target="_blank"
+              >
+                Signer oppropet
+              </a>
+            </div>
+          </div>
+          <button className={styles.spinBtn} onClick={doSpin}>
+            Spinn
+          </button>
         </div>
-        <button className={styles.spinBtn} onClick={doSpin}>
-          Spinn
-        </button>
       </div>
-    </div>
+    </>
   )
 }
 
@@ -200,7 +210,7 @@ const Reel = ({
             <img src={`/assets/slots/co2.png`} alt="co2" width="100" />
           ) : (
             <img
-              src={`/assets/slots/${SLOT_TYPES[getRandomNumber(0, 5)]}.svg`}
+              src={`/assets/slots/${SLOT_TYPES[getRandomNumber(0, 5)]}.png`}
               alt="fish"
               style={{ maxHeight: "90px", maxWidth: "90px" }}
             />

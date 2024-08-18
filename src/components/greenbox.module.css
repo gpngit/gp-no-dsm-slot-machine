@@ -30,18 +30,18 @@
   position: relative;
 
   @media (min-width: 800px) {
-    max-width: 900px;
+    max-width: 1000px;
   }
 }
 .inner {
   background: linear-gradient(180deg, #50f274 2.94%, #006038 85.32%);
   border-radius: 34px;
-  padding: 20px 20px 30px 20px;
+  padding: 15px 15px 30px 15px;
   font-size: 20px;
   line-height: 28px;
 
   @media (min-width: 800px) {
-    padding: 10%;
+    padding: 5% 5% 8%;
     font-size: 24px;
     line-height: 31px;
   }
