@@ -6,12 +6,11 @@ import { Button } from './Button'
 import { GreenBox } from './GreenBox'
 import { Prizes } from './Prizes'
 import styles from './slotmachine.module.css'
+import { getRandomNumber } from '@/utils/number'
+import SlotMachineReel from './SlotMachineReel'
 
 const SLOTS = 10
 const SLOT_HEIGHT = 180
-const SLOT_ANGLE = 360 / SLOTS
-const REEL_RADIUS = Math.round(SLOT_HEIGHT / 2 / Math.tan(Math.PI / SLOTS))
-const SPIN_MAX_DURATION = 5
 
 const SLOT_TYPES = ['anemone', 'dumbo', 'co2', 'fish', 'star', 'whale']
 
@@ -77,6 +76,8 @@ function SlotMachine() {
 
   const handleOnComplete = useCallback(
     (result: number) => {
+      console.log('complete current', complete.current, shouldWin)
+
       if (complete.current === 0) currentSlot.current = result
       if (currentSlot.current !== result) currentSlot.current = false
       complete.current = complete.current + 1
@@ -88,7 +89,7 @@ function SlotMachine() {
 
         if (!spin && !firstRun) {
           return setSpin(true)
-        } else if (shouldWin || currentSlot.current !== false) {
+        } else if (spin && (shouldWin || currentSlot.current !== false)) {
           setShowAfterSpinModal(true)
           WIN_PROBABILITY.current = 0.2
         }
@@ -142,24 +143,23 @@ function SlotMachine() {
           </div>
           <div className={styles.cutOut}>
             <div className={styles.screen}>
-              <Reel
+              <SlotMachineReel
                 spinning={spin}
                 shouldWin={shouldWin}
                 winType={winType}
                 onComplete={handleOnComplete}
               />
-              <Reel
+              <SlotMachineReel
                 spinning={spin}
                 shouldWin={shouldWin}
                 winType={winType}
                 onComplete={handleOnComplete}
               />
-              <Reel
+              <SlotMachineReel
                 spinning={spin}
                 shouldWin={shouldWin}
                 winType={winType}
                 onComplete={handleOnComplete}
-                excludeWinner
               />
             </div>
             <div
@@ -205,80 +205,6 @@ function SlotMachine() {
       </div>
     </>
   )
-}
-
-const Reel = ({
-  spinning,
-  shouldWin,
-  winType,
-  onComplete,
-  excludeWinner,
-}: {
-  shouldWin: boolean
-  winType: string
-  spinning: boolean
-  excludeWinner?: boolean
-  onComplete: (winner: number) => void
-}) => {
-  const [currentAngle, setCurrentAngle] = useState(
-    SLOT_ANGLE * getRandomNumber(90, 100)
-  )
-  const [endSlot, setEndSlot] = useState(getRandomNumber(0, 5))
-
-  useEffect(() => {
-    setCurrentAngle(SLOT_ANGLE * getRandomNumber(90, 100))
-    setEndSlot(getRandomNumber(0, 5))
-  }, [spinning])
-
-  return (
-    <div
-      className={styles.reel}
-      suppressHydrationWarning
-      onTransitionEnd={() => onComplete(endSlot)}
-      style={{
-        transform: spinning ? `rotateX(0deg)` : `rotateX(${currentAngle}deg)`,
-        transition: spinning
-          ? `transform ${getRandomNumber(
-              1,
-              SPIN_MAX_DURATION
-            )}s cubic-bezier(.17,.67,.07,.97)`
-          : 'transform 1ms cubic-bezier(.27,.68,.82,.52)',
-      }}
-    >
-      {Array.from({ length: SLOTS }).map((_, i) => (
-        <span
-          key={i}
-          suppressHydrationWarning
-          className={styles.slot}
-          style={{
-            transform: `rotateX(${
-              SLOT_ANGLE * i
-            }deg) translateZ(${REEL_RADIUS}px)`,
-          }}
-        >
-          {i === 0 && shouldWin ? (
-            <Image
-              src={`/assets/slots/${winType}.png`}
-              alt="co2"
-              width="100"
-              height="100"
-            />
-          ) : (
-            <Image
-              src={`/assets/slots/${SLOT_TYPES[endSlot]}.png`}
-              alt="fish"
-              width="100"
-              height="100"
-            />
-          )}
-        </span>
-      ))}
-    </div>
-  )
-}
-
-const getRandomNumber = (min: number, max: number) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
 export default SlotMachine
