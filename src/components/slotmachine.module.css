@@ -162,7 +162,6 @@
   position: absolute;
   height: var(--slot-height);
   width: var(--slot-width);
-  font-size: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
