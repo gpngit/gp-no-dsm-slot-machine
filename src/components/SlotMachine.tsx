@@ -1,19 +1,19 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { useCallback, useEffect, useRef, useState } from "react"
-import { GreenBox } from "./GreenBox"
-import { Prizes } from "./Prizes"
-import styles from "./slotmachine.module.css"
+import Image from "next/image";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { GreenBox } from "./GreenBox";
+import { Prizes } from "./Prizes";
+import styles from "./slotmachine.module.css";
 
-const SLOTS = 10
-const WIN_PROBABILITY = 1 // 10%
-const SLOT_HEIGHT = 180
-const SLOT_ANGLE = 360 / SLOTS
-const REEL_RADIUS = Math.round(SLOT_HEIGHT / 2 / Math.tan(Math.PI / SLOTS))
-const SPIN_MAX_DURATION = 5
+const SLOTS = 10;
+const WIN_PROBABILITY = 1; // 10%
+const SLOT_HEIGHT = 180;
+const SLOT_ANGLE = 360 / SLOTS;
+const REEL_RADIUS = Math.round(SLOT_HEIGHT / 2 / Math.tan(Math.PI / SLOTS));
+const SPIN_MAX_DURATION = 5;
 
-const SLOT_TYPES = ["anemone", "dumbo", "fish", "machine", "star", "whale"]
+const SLOT_TYPES = ["anemone", "dumbo", "fish", "machine", "star", "whale"];
 
 enum States {
   SPIN,
@@ -23,48 +23,48 @@ enum States {
 }
 
 function SlotMachine() {
-  const [pageState, setPageState] = useState(States.SPIN)
-  const [mounted, setMounted] = useState(false)
-  const [spin, setSpin] = useState(false)
-  const [shouldWin, setShouldWin] = useState(Math.random() > WIN_PROBABILITY)
-  const [firstRun, setFirstRun] = useState(true)
-  const [showAfterSpinModal, setShowAfterSpinModal] = useState(false)
-  const complete = useRef(0)
+  const [pageState, setPageState] = useState(States.SPIN);
+  const [mounted, setMounted] = useState(false);
+  const [spin, setSpin] = useState(false);
+  const [shouldWin, setShouldWin] = useState(Math.random() > WIN_PROBABILITY);
+  const [firstRun, setFirstRun] = useState(true);
+  const [showAfterSpinModal, setShowAfterSpinModal] = useState(false);
+  const complete = useRef(0);
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   const doSpin = () => {
-    const header = document.getElementById("header")
-    header?.classList.add("header-animation")
-    header?.classList.remove("header-enter")
-    setShouldWin(Math.random() > WIN_PROBABILITY)
-    setFirstRun(false)
-    complete.current = 0
+    const header = document.getElementById("header");
+    header?.classList.add("header-animation");
+    header?.classList.remove("header-enter");
+    setShouldWin(Math.random() > WIN_PROBABILITY);
+    setFirstRun(false);
+    complete.current = 0;
     if (firstRun) {
-      setSpin(true)
+      setSpin(true);
     } else {
-      setSpin(false)
+      setSpin(false);
     }
-  }
+  };
 
   const handleOnComplete = useCallback(() => {
-    console.log("is complete")
-    complete.current = complete.current + 1
+    console.log("is complete");
+    complete.current = complete.current + 1;
     if (complete.current === 3) {
-      const header = document.getElementById("header")
-      header?.classList.remove("header-animation")
+      const header = document.getElementById("header");
+      header?.classList.remove("header-animation");
 
       if (!spin && !firstRun) {
-        setSpin(true)
-        return (complete.current = 0)
+        setSpin(true);
+        return (complete.current = 0);
       }
-      if (shouldWin && spin) setShowAfterSpinModal(true)
+      if (shouldWin && spin) setShowAfterSpinModal(true);
     }
-  }, [complete, shouldWin, spin, firstRun])
+  }, [complete, shouldWin, spin, firstRun]);
 
-  if (!mounted) return null
+  if (!mounted) return null;
 
   if (pageState === States.PRIZES) {
     return (
@@ -77,7 +77,7 @@ function SlotMachine() {
       >
         <Prizes />
       </GreenBox>
-    )
+    );
   }
   if (pageState === States.ABOUT) {
     return (
@@ -94,12 +94,15 @@ function SlotMachine() {
           dyphavet.
         </p>
       </GreenBox>
-    )
+    );
   }
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.main}>
+        <div className={styles.frameBg}>
+          <Image src="/assets/frame-desktop.png" fill alt="background" />
+        </div>
         <div className={styles.frame}>
           <Image src="/assets/slot-machine.png" fill alt="Slot machine" />
         </div>
@@ -147,7 +150,7 @@ function SlotMachine() {
         </button>
       </div>
     </div>
-  )
+  );
 }
 
 const Reel = ({
@@ -155,17 +158,17 @@ const Reel = ({
   shouldWin,
   onComplete,
 }: {
-  shouldWin: boolean
-  spinning: boolean
-  onComplete: () => void
+  shouldWin: boolean;
+  spinning: boolean;
+  onComplete: () => void;
 }) => {
   const [currentAngle, setCurrentAngle] = useState(
     SLOT_ANGLE * getRandomNumber(50, 120)
-  )
+  );
 
   useEffect(() => {
-    setCurrentAngle(SLOT_ANGLE * getRandomNumber(50, 120))
-  }, [spinning, shouldWin])
+    setCurrentAngle(SLOT_ANGLE * getRandomNumber(50, 120));
+  }, [spinning, shouldWin]);
 
   return (
     <div
@@ -205,11 +208,11 @@ const Reel = ({
         </span>
       ))}
     </div>
-  )
-}
+  );
+};
 
 const getRandomNumber = (min: number, max: number) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min
-}
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
 
-export default SlotMachine
+export default SlotMachine;

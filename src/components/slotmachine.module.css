@@ -74,7 +74,6 @@
   left: -270px;
   position: absolute;
   z-index: -1;
-  background-image: url("/assets/frame-desktop.png");
   background-size: 80%;
   background-repeat: no-repeat;
 }
@@ -87,6 +86,15 @@
   left: -150px;
   top: -90px;
   position: relative;
+}
+
+.frameBg {
+  position: absolute;
+  height: 100%;
+  width: 1200px;
+  height: 800px;
+  left: -350px;
+  top: -230px;
 }
 
 .screen {
