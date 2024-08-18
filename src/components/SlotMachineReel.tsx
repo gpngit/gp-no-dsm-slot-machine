@@ -46,7 +46,7 @@ const SlotMachineReel = ({
               1,
               SPIN_MAX_DURATION
             )}s cubic-bezier(.17,.67,.07,.97)`
-          : 'transform 1ms cubic-bezier(.27,.68,.82,.52)',
+          : 'transform 100ms linear',
       }}
     >
       {Array.from({ length: SLOTS }).map((_, i) => (

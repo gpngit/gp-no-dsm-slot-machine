@@ -76,9 +76,7 @@ function SlotMachine() {
 
   const handleOnComplete = useCallback(
     (result: number) => {
-      console.log('complete current', complete.current, shouldWin)
-
-      if (complete.current === 0) currentSlot.current = result
+      if (complete.current === 0 && spin) currentSlot.current = result
       if (currentSlot.current !== result) currentSlot.current = false
       complete.current = complete.current + 1
 
@@ -89,7 +87,10 @@ function SlotMachine() {
 
         if (!spin && !firstRun) {
           return setSpin(true)
-        } else if (spin && (shouldWin || currentSlot.current !== false)) {
+        } else if (
+          spin &&
+          (shouldWin || typeof currentSlot.current === 'number')
+        ) {
           setShowAfterSpinModal(true)
           WIN_PROBABILITY.current = 0.2
         }
