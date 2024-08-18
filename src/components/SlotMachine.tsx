@@ -23,7 +23,7 @@ enum States {
 }
 
 function SlotMachine() {
-  const [pageState, setPageState] = useState(States.PRIZES)
+  const [pageState, setPageState] = useState(States.SPIN)
   const [mounted, setMounted] = useState(false)
   const [spin, setSpin] = useState(false)
   const [shouldWin, setShouldWin] = useState(Math.random() > WIN_PROBABILITY)
@@ -98,41 +98,31 @@ function SlotMachine() {
   }
 
   return (
-    <>
-      <header id="header" className="header-enter">
-        <Image
-          src="/assets/dsb-logo.png"
-          alt="Deep sea betting logo"
-          width="591"
-          height="319"
-        />
-      </header>
-      <div className={styles.wrapper}>
-        <div className={styles.main}>
-          <div className={styles.frameBg}>
-            <Image src="/assets/frame-desktop.png" fill alt="background" />
-          </div>
-          <div className={styles.frame}>
-            <Image src="/assets/slot-machine.png" fill alt="Slot machine" />
-          </div>
-          <div className={styles.cutOut}>
-            <div className={styles.screen}>
-              <Reel
-                spinning={spin}
-                shouldWin={shouldWin}
-                onComplete={handleOnComplete}
-              />
-              <Reel
-                spinning={spin}
-                shouldWin={shouldWin}
-                onComplete={handleOnComplete}
-              />
-              <Reel
-                spinning={spin}
-                shouldWin={shouldWin}
-                onComplete={handleOnComplete}
-              />
-            </div>
+    <div className={styles.wrapper}>
+      <div className={styles.frameBg}>
+        <Image src="/assets/frame-desktop.png" fill alt="background" />
+      </div>
+      <div className={styles.main}>
+        <div className={styles.frame}>
+          <Image src="/assets/slot-machine.png" fill alt="Slot machine" />
+        </div>
+        <div className={styles.cutOut}>
+          <div className={styles.screen}>
+            <Reel
+              spinning={spin}
+              shouldWin={shouldWin}
+              onComplete={handleOnComplete}
+            />
+            <Reel
+              spinning={spin}
+              shouldWin={shouldWin}
+              onComplete={handleOnComplete}
+            />
+            <Reel
+              spinning={spin}
+              shouldWin={shouldWin}
+              onComplete={handleOnComplete}
+            />
           </div>
           <div
             className={styles.feedback}
@@ -154,12 +144,12 @@ function SlotMachine() {
               </a>
             </div>
           </div>
-          <button className={styles.spinBtn} onClick={doSpin}>
-            Spinn
-          </button>
         </div>
       </div>
-    </>
+      <button className={styles.spinBtn} onClick={doSpin}>
+        Spinn
+      </button>
+    </div>
   )
 }
 
