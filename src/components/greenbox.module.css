@@ -38,7 +38,7 @@
   padding: 10px 10px 30px 10px;
   font-size: 20px;
   line-height: 28px;
-  max-height: 65vh;
+  max-height: 55vh;
   overflow: scroll;
 
   @media (min-width: 800px) {
