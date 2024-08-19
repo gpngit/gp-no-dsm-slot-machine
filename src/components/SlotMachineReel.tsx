@@ -1,9 +1,9 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
-import Image from 'next/image'
-import styles from './slotmachine.module.css'
 import { getRandomNumber } from '@/utils/number'
+import Image from 'next/image'
+import { useEffect, useState } from 'react'
+import styles from './slotmachine.module.css'
 
 const SLOTS = 10
 const SLOT_HEIGHT = 180
@@ -66,6 +66,7 @@ const SlotMachineReel = ({
               alt="fish"
               width="100"
               height="100"
+              quality={100}
             />
           )}
           {i === 0 && shouldWin && (
@@ -74,6 +75,7 @@ const SlotMachineReel = ({
               alt="co2"
               width="100"
               height="100"
+              quality={100}
             />
           )}
           {i === 0 && !shouldWin && (
@@ -82,6 +84,7 @@ const SlotMachineReel = ({
               alt="fish"
               width="100"
               height="100"
+              quality={100}
             />
           )}
         </span>
