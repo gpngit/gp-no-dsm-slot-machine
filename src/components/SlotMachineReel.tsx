@@ -27,7 +27,7 @@ const SlotMachineReel = ({
   const [currentAngle, setCurrentAngle] = useState(
     SLOT_ANGLE * getRandomNumber(90, 100)
   )
-  const [endSlot, setEndSlot] = useState(getRandomNumber(0, 5))
+  const [endSlot, setEndSlot] = useState(getRandomNumber(0, 4))
 
   useEffect(() => {
     setCurrentAngle(SLOT_ANGLE * getRandomNumber(90, 100))
@@ -60,14 +60,23 @@ const SlotMachineReel = ({
             }deg) translateZ(${REEL_RADIUS}px)`,
           }}
         >
-          {i === 0 && shouldWin ? (
+          {i !== 0 && (
+            <Image
+              src={`/assets/slots/${SLOT_TYPES[getRandomNumber(0, 4)]}.png`}
+              alt="fish"
+              width="100"
+              height="100"
+            />
+          )}
+          {i === 0 && shouldWin && (
             <Image
               src={`/assets/slots/${winType}.png`}
               alt="co2"
               width="100"
               height="100"
             />
-          ) : (
+          )}
+          {i === 0 && !shouldWin && (
             <Image
               src={`/assets/slots/${SLOT_TYPES[endSlot]}.png`}
               alt="fish"
