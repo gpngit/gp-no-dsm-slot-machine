@@ -20,6 +20,11 @@
   width: 33%;
   height: auto;
 }
+@media screen and (min-width: 800px) {
+  .slots img {
+    max-width: 180px;
+  }
+}
 
 .congrats {
   max-width: 90%;
