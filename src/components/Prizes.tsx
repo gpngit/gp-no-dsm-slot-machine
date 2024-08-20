@@ -26,9 +26,7 @@ export const Prizes: FC = () => {
             />
           </div>
           <h3 className={styles.heading}>Fiskeskjelett</h3>
-          <p className={styles.content}>
-            Du har ødelagt oppvekstområdet til en viktig fiskebestand
-          </p>
+          <p className={styles.content}>Ødelegger viktig fiskebestandområde</p>
         </div>
         <div className={styles.part}>
           <div className={styles.image}>
@@ -50,9 +48,7 @@ export const Prizes: FC = () => {
             />
           </div>
           <h3 className={styles.heading}>Co2</h3>
-          <p className={styles.content}>
-            Du har frigjort store mengder CO2 og forsuret havet
-          </p>
+          <p className={styles.content}>Forsurer havet</p>
         </div>
         <div className={styles.part}>
           <div className={styles.image}>
@@ -74,9 +70,7 @@ export const Prizes: FC = () => {
             />
           </div>
           <h3 className={styles.heading}>Sjøstjerne</h3>
-          <p className={styles.content}>
-            Du har utslettet en koloni av sjøstjerner
-          </p>
+          <p className={styles.content}>Utsletter en koloni med sjøstjerner</p>
         </div>
       </div>
       <div className={styles.row}>
@@ -100,7 +94,7 @@ export const Prizes: FC = () => {
             />
           </div>
           <h3 className={styles.heading}>Anemone</h3>
-          <p className={styles.content}>Du har utryddet en unik dypvannsart</p>
+          <p className={styles.content}>Utrydder unik dypvannsart</p>
         </div>
         <div className={styles.part}>
           <div className={styles.image}>
@@ -123,7 +117,7 @@ export const Prizes: FC = () => {
           </div>
           <h3 className={styles.heading}>Dumbo</h3>
           <p className={styles.content}>
-            Du har ødelagt habitatet til dumboblekkspruten
+            Ødelegger habitatet til dumboblekkspruten
           </p>
         </div>
         <div className={styles.part}>
@@ -146,9 +140,7 @@ export const Prizes: FC = () => {
             />
           </div>
           <h3 className={styles.heading}>Nebbhval</h3>
-          <p className={styles.content}>
-            Du har skremt bort den sjeldne nebbhvalen
-          </p>
+          <p className={styles.content}>Skremmer bort nebbhvalen</p>
         </div>
       </div>
     </div>

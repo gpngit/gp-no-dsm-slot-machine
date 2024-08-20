@@ -1,0 +1,52 @@
+.wrapper {
+  max-width: 90%;
+  margin-top: -100px;
+}
+@media screen and (min-width: 800px) {
+  .wrapper {
+    margin-top: -250px;
+  }
+}
+
+.slots {
+  max-width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin: 0 auto;
+}
+.slots img {
+  width: 33%;
+  height: auto;
+}
+
+.congrats {
+  max-width: 90%;
+  height: auto;
+  margin-top: 20px;
+}
+.intro {
+  font-family: var(--font-wimp);
+  color: #fff;
+  font-size: 30px;
+}
+@media screen and (min-width: 800px) {
+  .intro {
+    font-size: 40px;
+  }
+}
+
+.body {
+  color: #fff;
+  font-size: 20px;
+}
+
+.btns {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 40px;
+}

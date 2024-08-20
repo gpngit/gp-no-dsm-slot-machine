@@ -1,18 +1,19 @@
 'use client'
 
+import { getRandomNumber } from '@/utils/number'
 import Image from 'next/image'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Button } from './Button'
 import { GreenBox } from './GreenBox'
 import { Prizes } from './Prizes'
 import styles from './slotmachine.module.css'
-import { getRandomNumber } from '@/utils/number'
 import SlotMachineReel from './SlotMachineReel'
+import { Won } from './Won'
 
 const SLOTS = 10
 const SLOT_HEIGHT = 180
 
-const SLOT_TYPES = ['anemone', 'dumbo', 'co2', 'fish', 'star', 'whale']
+export const SLOT_TYPES = ['anemone', 'dumbo', 'co2', 'fish', 'star', 'whale']
 
 enum States {
   SPIN,
@@ -49,6 +50,12 @@ function SlotMachine() {
     if (pageState === States.ABOUT) {
     }
     if (pageState === States.PRIZES) {
+      const header = document.getElementById('header')
+      header?.classList.add('header-leave')
+      header?.classList.remove('header-enter')
+      header?.classList.remove('header-animation')
+    }
+    if (pageState === States.WON) {
       const header = document.getElementById('header')
       header?.classList.add('header-leave')
       header?.classList.remove('header-enter')
@@ -91,7 +98,9 @@ function SlotMachine() {
           spin &&
           (shouldWin || typeof currentSlot.current === 'number')
         ) {
-          setShowAfterSpinModal(true)
+          setTimeout(() => {
+            setPageState(States.WON)
+          }, 700)
           WIN_PROBABILITY.current = 0.2
         }
       }
@@ -101,12 +110,17 @@ function SlotMachine() {
 
   if (!mounted) return null
 
+  if (pageState === States.WON) {
+    return (
+      <Won slotType={winType} onPlayAgain={() => setPageState(States.SPIN)} />
+    )
+  }
   if (pageState === States.PRIZES) {
     return (
       <GreenBox
         btnText="Spill"
         onBtnClick={() => setPageState(States.SPIN)}
-        heading="Gevinster"
+        heading='"Gevinster"'
         renderHeadingAbove={true}
         withLogo={false}
       >
@@ -128,6 +142,15 @@ function SlotMachine() {
           Greenpeace jobber for å stoppe dette og beskytte livet i Arktis og i
           dyphavet.
         </p>
+        <div className={styles.aboutBtns}>
+          <a href="#">Les mer om kampanjen</a>
+          <a
+            href="https://www.greenpeace.org/norway/vaer-med/stopp-gruvedrift-pa-havbunnen/"
+            target="_blank"
+          >
+            Signer oppropet
+          </a>
+        </div>
       </GreenBox>
     )
   }

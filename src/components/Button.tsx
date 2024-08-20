@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react'
+import { ElementType, FC, ReactNode } from 'react'
 import styles from './button.module.css'
 
 export const Button: FC<{
@@ -6,16 +6,24 @@ export const Button: FC<{
   size?: 'small' | 'large'
   onClick: () => void
   wrapperClassName?: string
-}> = ({ children, onClick, wrapperClassName, size = 'large' }) => {
+  as?: ElementType
+}> = ({
+  children,
+  onClick,
+  wrapperClassName,
+  size = 'large',
+  as: Component = 'button',
+  ...rest
+}) => {
   return (
     <div
       className={`${styles.buttonWrapper} ${styles[size]} ${
         wrapperClassName ? wrapperClassName : ''
       }`}
     >
-      <button onClick={onClick} className={styles.button}>
+      <Component onClick={onClick} className={styles.button} {...rest}>
         {children}
-      </button>
+      </Component>
     </div>
   )
 }
