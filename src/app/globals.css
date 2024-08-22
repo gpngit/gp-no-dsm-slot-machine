@@ -8,6 +8,7 @@ body {
   min-height: 100vh;
   width: 100%;
   font-family: var(--font-work-sans);
+  overflow-x: hidden;
 
   align-items: flex-start;
   justify-content: center;
@@ -101,5 +102,45 @@ header {
   }
   100% {
     transform: translateY(-200%);
+  }
+}
+
+.win {
+  animation: win 1.5s ease-in-out forwards;
+}
+
+@keyframes win {
+  0% {
+    transform: scale(1) translateX(0);
+  }
+  10% {
+    transform: scale(1.2) translateX(0);
+  }
+  20% {
+    transform: scale(1) translateX(-10px);
+  }
+  30% {
+    transform: scale(1) translateX(10px);
+  }
+  40% {
+    transform: scale(1) translateX(-8px);
+  }
+  50% {
+    transform: scale(1) translateX(8px);
+  }
+  60% {
+    transform: scale(1) translateX(-6px);
+  }
+  70% {
+    transform: scale(1) translateX(6px);
+  }
+  80% {
+    transform: scale(1) translateX(-4px);
+  }
+  90% {
+    transform: scale(1) translateX(4px);
+  }
+  100% {
+    transform: scale(1) translateX(0);
   }
 }

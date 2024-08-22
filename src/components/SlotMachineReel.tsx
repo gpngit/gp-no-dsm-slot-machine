@@ -18,11 +18,13 @@ const SlotMachineReel = ({
   shouldWin,
   winType,
   onComplete,
+  id,
 }: {
   shouldWin: boolean
   winType: string
   spinning: boolean
   onComplete: (winner: number) => void
+  id: string
 }) => {
   const [currentAngle, setCurrentAngle] = useState(
     SLOT_ANGLE * getRandomNumber(90, 100)
@@ -67,6 +69,7 @@ const SlotMachineReel = ({
               width="100"
               height="100"
               quality={100}
+              priority
             />
           )}
           {i === 0 && shouldWin && (
@@ -76,6 +79,8 @@ const SlotMachineReel = ({
               width="100"
               height="100"
               quality={100}
+              priority
+              id={id}
             />
           )}
           {i === 0 && !shouldWin && (
@@ -85,6 +90,7 @@ const SlotMachineReel = ({
               width="100"
               height="100"
               quality={100}
+              priority
             />
           )}
         </span>

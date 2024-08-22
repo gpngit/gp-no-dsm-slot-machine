@@ -121,7 +121,7 @@
   top: -220px;
   animation: scaleUp 0.8s 0.4s forwards;
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1000px) {
     display: none;
   }
 }
@@ -256,4 +256,54 @@
 }
 .aboutBtns a:hover {
   text-decoration: none;
+}
+
+.altatape {
+  position: absolute;
+  width: 819px;
+  height: 135px;
+  bottom: 80px;
+  opacity: 0;
+  margin: 0 auto;
+  animation-name: scaleUp, wave;
+  animation-duration: 0.8s, 20s;
+  animation-delay: 0.5s, 1s;
+  animation-fill-mode: forwards, forwards;
+  animation-iteration-count: 1, infinite;
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg) skewX(0deg);
+  }
+  10% {
+    transform: rotate(2deg) skewX(3deg);
+  }
+  20% {
+    transform: rotate(-2deg) skewX(-3deg);
+  }
+  30% {
+    transform: rotate(2deg) skewX(3deg);
+  }
+  40% {
+    transform: rotate(-2deg) skewX(-2deg);
+  }
+  50% {
+    transform: rotate(1deg) skewX(2deg);
+  }
+  60% {
+    transform: rotate(-1deg) skewX(-1deg);
+  }
+  70% {
+    transform: rotate(1deg) skewX(1deg);
+  }
+  80% {
+    transform: rotate(-1deg) skewX(-1deg);
+  }
+  90% {
+    transform: rotate(1deg) skewX(1deg);
+  }
+  100% {
+    transform: rotate(0deg) skewX(0deg);
+  }
 }

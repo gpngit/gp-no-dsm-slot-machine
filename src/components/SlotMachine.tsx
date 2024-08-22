@@ -9,6 +9,7 @@ import { Prizes } from './Prizes'
 import styles from './slotmachine.module.css'
 import SlotMachineReel from './SlotMachineReel'
 import { Won } from './Won'
+import confetti from 'canvas-confetti'
 
 const SLOTS = 10
 const SLOT_HEIGHT = 180
@@ -98,9 +99,36 @@ function SlotMachine() {
           spin &&
           (shouldWin || typeof currentSlot.current === 'number')
         ) {
+          const reel1 = document.getElementById('reel1')
+          const reel2 = document.getElementById('reel2')
+          const reel3 = document.getElementById('reel3')
+          const reels = [reel1, reel2, reel3]
+
+          for (let i = 0; i < 3; i++) {
+            setTimeout(() => {
+              reels[i]?.classList.add('win')
+            }, i * 100)
+          }
+
+          confetti({
+            shapes: ['circle'],
+            particleCount: 460,
+            spread: 100,
+            scalar: 3,
+            drift: 2,
+            gravity: 5,
+            decay: 0.9,
+            startVelocity: 90,
+            colors: ['#FDB02A', '#FCE48E', '#F0A048'],
+          })
+
           setTimeout(() => {
             setPageState(States.WON)
-          }, 700)
+
+            for (const reel of reels) {
+              reel?.classList.remove('win')
+            }
+          }, 2000)
           WIN_PROBABILITY.current = 0.2
         }
       }
@@ -159,11 +187,24 @@ function SlotMachine() {
     <>
       <div className={styles.wrapper}>
         <div className={styles.frameBg}>
-          <Image src="/assets/frame-desktop.png" fill alt="background" />
+          <Image
+            src="/assets/frame-desktop.png"
+            fill
+            alt="background"
+            priority
+          />
+        </div>
+        <div className={styles.altatape}>
+          <Image src="/assets/altatape.png" alt="background" priority fill />
         </div>
         <div className={styles.main}>
           <div className={styles.frame}>
-            <Image src="/assets/slot-machine.png" fill alt="Slot machine" />
+            <Image
+              src="/assets/slot-machine.png"
+              fill
+              alt="Slot machine"
+              priority
+            />
           </div>
           <div className={styles.cutOut}>
             <div className={styles.screen}>
@@ -172,18 +213,21 @@ function SlotMachine() {
                 shouldWin={shouldWin}
                 winType={winType}
                 onComplete={handleOnComplete}
+                id="reel1"
               />
               <SlotMachineReel
                 spinning={spin}
                 shouldWin={shouldWin}
                 winType={winType}
                 onComplete={handleOnComplete}
+                id="reel2"
               />
               <SlotMachineReel
                 spinning={spin}
                 shouldWin={shouldWin}
                 winType={winType}
                 onComplete={handleOnComplete}
+                id="reel3"
               />
             </div>
             <div
@@ -226,6 +270,7 @@ function SlotMachine() {
             Gevinster
           </Button>
         </div>
+        <div id="party" />
       </div>
     </>
   )
