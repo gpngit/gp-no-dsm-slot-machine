@@ -31,6 +31,10 @@ export default function RootLayout({
           alt="Deep sea betting logo"
           objectFit="cover"
           priority
+          style={{
+            objectFit: 'cover',
+          }}
+          sizes="100vw"
         />
         {children}
       </body>
