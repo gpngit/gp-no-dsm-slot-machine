@@ -24,18 +24,28 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${worksans.variable} ${wimp.variable}`}>
       <body>
-        <Image
-          fill
-          quality={90}
-          src="/assets/bg-desktop.png"
-          alt="Deep sea betting logo"
-          objectFit="cover"
-          priority
+        <div
           style={{
-            objectFit: 'cover',
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
           }}
-          sizes="100vw"
-        />
+        >
+          <Image
+            fill
+            quality={90}
+            src="/assets/bg-desktop.png"
+            alt="Deep sea betting logo"
+            objectFit="cover"
+            priority
+            style={{
+              objectFit: 'cover',
+            }}
+            sizes="100vw"
+          />
+        </div>
         {children}
       </body>
     </html>
