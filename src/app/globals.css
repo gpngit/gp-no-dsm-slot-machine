@@ -39,6 +39,22 @@ main {
   }
 }
 
+header {
+  position: absolute;
+  z-index: 1;
+  width: 300px;
+  top: 20px;
+
+  @media (min-width: 800px) {
+    width: 400px;
+    top: 30px;
+  }
+
+  @media (min-width: 1000px) {
+    width: 500px;
+  }
+}
+
 .header-enter {
   animation: dropdownBounce 1s ease-out forwards;
   animation-delay: 1s;
