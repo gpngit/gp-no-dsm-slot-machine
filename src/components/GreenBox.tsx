@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { FC, ReactNode } from 'react'
 import { Button } from './Button'
 import styles from './greenbox.module.css'
@@ -20,24 +19,8 @@ export const GreenBox: FC<{
 }) => {
   return (
     <>
-      {withLogo && (
-        <header id="header" className="header-enter">
-          <Image
-            src="/assets/dsb-logo.png"
-            alt="Deep sea betting logo"
-            width="591"
-            height="319"
-            priority
-          />
-        </header>
-      )}
       {heading && renderHeadingAbove && (
-        <h1
-          style={{ marginTop: '-250px', marginBottom: 20 }}
-          className={styles.heading}
-        >
-          {heading}
-        </h1>
+        <h1 className={styles.headingAbove}>{heading}</h1>
       )}
       <div className={styles.wrapper}>
         <div className={styles.inner}>

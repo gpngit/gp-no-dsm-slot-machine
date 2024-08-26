@@ -36,24 +36,36 @@
 .inner {
   background: linear-gradient(180deg, #50f274 2.94%, #006038 85.32%);
   border-radius: 34px;
-  padding: 10px 10px 30px 10px;
+  padding: 50px 10px 30px 10px;
   font-size: 20px;
   line-height: 28px;
-  max-height: 55vh;
+  max-height: 70vh;
   overflow: scroll;
 
   @media (min-width: 800px) {
-    padding: 5% 5% 8%;
+    padding: 8% 5% 8%;
     font-size: 24px;
     line-height: 31px;
   }
 }
 
+.headingAbove {
+  font-family: var(--font-wimp);
+  text-transform: uppercase;
+  font-size: 46px;
+  color: #fff;
+  margin: 0 0 10px;
+
+  @media (min-width: 800px) {
+    font-size: 96px;
+  }
+}
 .heading {
   font-family: var(--font-wimp);
   text-transform: uppercase;
   font-size: 46px;
   color: #fff;
+  margin: 0;
 
   @media (min-width: 800px) {
     font-size: 96px;

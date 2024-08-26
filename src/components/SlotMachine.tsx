@@ -49,6 +49,10 @@ function SlotMachine() {
       header?.classList.remove('header-leave')
     }
     if (pageState === States.ABOUT) {
+      const header = document.getElementById('header')
+      header?.classList.add('header-leave')
+      header?.classList.remove('header-enter')
+      header?.classList.remove('header-animation')
     }
     if (pageState === States.PRIZES) {
       const header = document.getElementById('header')
@@ -162,7 +166,7 @@ function SlotMachine() {
         btnText="Spill"
         onBtnClick={() => setPageState(States.SPIN)}
         heading="Om kampanjen"
-        withLogo={false}
+        withLogo={true}
       >
         <p>
           Visste du at Norge vil starte gruvedrift på havbunnen i sårbare
