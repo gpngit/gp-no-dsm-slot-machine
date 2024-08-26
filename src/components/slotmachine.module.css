@@ -15,23 +15,6 @@
   }
 }
 
-.header {
-  position: absolute;
-  z-index: 1;
-  top: -90px;
-  width: 300px;
-
-  @media (min-width: 800px) {
-    top: -140px;
-    width: 400px;
-  }
-
-  @media (min-width: 1000px) {
-    top: -240px;
-    width: 500px;
-  }
-}
-
 @keyframes enterBottom {
   0% {
     transform: translateY(100%);

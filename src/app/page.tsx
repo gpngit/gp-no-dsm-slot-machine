@@ -4,6 +4,16 @@ import Image from 'next/image'
 export default function Home() {
   return (
     <main>
+      <header id="header">
+        <Image
+          src="/assets/dsb-logo.png"
+          alt="Deep sea betting logo"
+          width="591"
+          height="319"
+          layout="responsive"
+          priority
+        />
+      </header>
       <SlotMachine />
     </main>
   )
