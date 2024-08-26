@@ -16,7 +16,7 @@ body {
   background-color: rgba(11, 70, 56);
 
   max-width: 100vw;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 header {
