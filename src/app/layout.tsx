@@ -47,6 +47,15 @@ export default function RootLayout({
           />
         </div>
         {children}
+        <div className="greenpeace">
+          <Image
+            src="/assets/greenpeace.png"
+            alt="Greenpeace"
+            fill
+            priority
+            quality={100}
+          />
+        </div>
       </body>
     </html>
   )
