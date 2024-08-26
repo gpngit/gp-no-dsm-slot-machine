@@ -57,6 +57,7 @@ export const Won: FC<{
         alt="You won!"
         quality={100}
         className={styles.congrats}
+        priority
       />
       <div className={styles.intro}>
         <p>{heading}</p>

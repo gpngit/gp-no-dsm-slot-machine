@@ -13,6 +13,8 @@ const SPIN_MAX_DURATION = 3
 
 const SLOT_TYPES = ['anemone', 'dumbo', 'co2', 'fish', 'star', 'whale']
 
+const imageSize = 200
+
 const SlotMachineReel = ({
   spinning,
   shouldWin,
@@ -66,31 +68,34 @@ const SlotMachineReel = ({
             <Image
               src={`/assets/slots/${SLOT_TYPES[getRandomNumber(0, 4)]}.png`}
               alt="fish"
-              width="100"
-              height="100"
+              width={imageSize}
+              height={imageSize}
               quality={100}
               priority
+              style={{ width: 100, height: 100 }}
             />
           )}
           {i === 0 && shouldWin && (
             <Image
               src={`/assets/slots/${winType}.png`}
               alt="co2"
-              width="100"
-              height="100"
+              width={imageSize}
+              height={imageSize}
               quality={100}
               priority
               id={id}
+              style={{ width: 100, height: 100 }}
             />
           )}
           {i === 0 && !shouldWin && (
             <Image
               src={`/assets/slots/${SLOT_TYPES[endSlot]}.png`}
               alt="fish"
-              width="100"
-              height="100"
+              width={imageSize}
+              height={imageSize}
               quality={100}
               priority
+              style={{ width: 100, height: 100 }}
             />
           )}
         </span>
