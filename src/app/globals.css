@@ -39,23 +39,6 @@ main {
   }
 }
 
-.header-logo {
-  max-width: 80vw;
-
-  @media (min-width: 800px) {
-    max-width: 591px;
-  }
-}
-header {
-  position: absolute;
-  z-index: 1;
-  top: -240px;
-
-  @media (max-width: 1000px) {
-    top: -120px;
-  }
-}
-
 .header-enter {
   animation: dropdownBounce 1s ease-out forwards;
   animation-delay: 1s;

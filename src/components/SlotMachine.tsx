@@ -186,6 +186,16 @@ function SlotMachine() {
   return (
     <>
       <div className={styles.wrapper}>
+        <header id="header" className={styles.header}>
+          <Image
+            src="/assets/dsb-logo.png"
+            alt="Deep sea betting logo"
+            width="591"
+            height="319"
+            layout="responsive"
+            priority
+          />
+        </header>
         <div className={styles.frameBg}>
           <Image
             src="/assets/frame-desktop.png"
@@ -195,7 +205,13 @@ function SlotMachine() {
           />
         </div>
         <div className={styles.altatape}>
-          <Image src="/assets/altatape.png" alt="background" priority fill />
+          <Image
+            src="/assets/altatape.png"
+            alt="background"
+            priority
+            fill
+            quality={100}
+          />
         </div>
         <div className={styles.main}>
           <div className={styles.frame}>
