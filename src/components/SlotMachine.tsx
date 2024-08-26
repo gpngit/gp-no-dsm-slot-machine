@@ -189,101 +189,94 @@ function SlotMachine() {
   }
 
   return (
-    <>
-      <div className={styles.wrapper}>
-        <div className={styles.frameBg}>
+    <div className={styles.wrapper}>
+      <div className={styles.frameBg}>
+        <Image src="/assets/frame-desktop.png" fill alt="background" priority />
+      </div>
+      <div className={styles.altatape}>
+        <Image
+          src="/assets/altatape.png"
+          alt="background"
+          priority
+          fill
+          quality={100}
+        />
+      </div>
+      <div className={styles.main}>
+        <div className={styles.frame}>
           <Image
-            src="/assets/frame-desktop.png"
+            src="/assets/slot-machine.png"
             fill
-            alt="background"
+            alt="Slot machine"
             priority
           />
         </div>
-        <div className={styles.altatape}>
-          <Image
-            src="/assets/altatape.png"
-            alt="background"
-            priority
-            fill
-            quality={100}
-          />
-        </div>
-        <div className={styles.main}>
-          <div className={styles.frame}>
-            <Image
-              src="/assets/slot-machine.png"
-              fill
-              alt="Slot machine"
-              priority
+        <div className={styles.cutOut}>
+          <div className={styles.screen}>
+            <SlotMachineReel
+              spinning={spin}
+              shouldWin={shouldWin}
+              winType={winType}
+              onComplete={handleOnComplete}
+              id="reel1"
+            />
+            <SlotMachineReel
+              spinning={spin}
+              shouldWin={shouldWin}
+              winType={winType}
+              onComplete={handleOnComplete}
+              id="reel2"
+            />
+            <SlotMachineReel
+              spinning={spin}
+              shouldWin={shouldWin}
+              winType={winType}
+              onComplete={handleOnComplete}
+              id="reel3"
             />
           </div>
-          <div className={styles.cutOut}>
-            <div className={styles.screen}>
-              <SlotMachineReel
-                spinning={spin}
-                shouldWin={shouldWin}
-                winType={winType}
-                onComplete={handleOnComplete}
-                id="reel1"
-              />
-              <SlotMachineReel
-                spinning={spin}
-                shouldWin={shouldWin}
-                winType={winType}
-                onComplete={handleOnComplete}
-                id="reel2"
-              />
-              <SlotMachineReel
-                spinning={spin}
-                shouldWin={shouldWin}
-                winType={winType}
-                onComplete={handleOnComplete}
-                id="reel3"
-              />
-            </div>
-            <div
-              className={styles.feedback}
-              style={{
-                display: showAfterSpinModal ? 'flex' : 'none',
-              }}
-            >
-              <h3>{shouldWin ? 'Gratulerer!' : 'Du tapte'}</h3>
-              <p>
-                {shouldWin
-                  ? 'Du har utryddet en fiskeart! Fortsett å gamble med livet på havbunnen, så kanskje du ødelegger enda mer av det maritime økosystemet!'
-                  : 'Hva skal det stå hvis man ikke vinner?'}
-              </p>
-              <div className={styles.feedbackBtns}>
-                <button onClick={() => doSpin()}>Spinn igjen!</button>
-                <a
-                  href="https://www.greenpeace.org/norway/vaer-med/stopp-gruvedrift-pa-havbunnen/"
-                  target="_blank"
-                >
-                  Signer oppropet
-                </a>
-              </div>
+          <div
+            className={styles.feedback}
+            style={{
+              display: showAfterSpinModal ? 'flex' : 'none',
+            }}
+          >
+            <h3>{shouldWin ? 'Gratulerer!' : 'Du tapte'}</h3>
+            <p>
+              {shouldWin
+                ? 'Du har utryddet en fiskeart! Fortsett å gamble med livet på havbunnen, så kanskje du ødelegger enda mer av det maritime økosystemet!'
+                : 'Hva skal det stå hvis man ikke vinner?'}
+            </p>
+            <div className={styles.feedbackBtns}>
+              <button onClick={() => doSpin()}>Spinn igjen!</button>
+              <a
+                href="https://www.greenpeace.org/norway/vaer-med/stopp-gruvedrift-pa-havbunnen/"
+                target="_blank"
+              >
+                Signer oppropet
+              </a>
             </div>
           </div>
         </div>
-        <div className={styles.footer}>
-          <Button size="small" onClick={() => setPageState(States.ABOUT)}>
-            Om kampanjen
-          </Button>
-          <Button wrapperClassName={styles.spinBtn} onClick={() => doSpin()}>
-            Spinn
-          </Button>
-          <Button
-            size="small"
-            onClick={() => {
-              setPageState(States.PRIZES)
-            }}
-          >
-            Gevinster
-          </Button>
-        </div>
-        <div id="party" />
       </div>
-    </>
+      <div className={styles.footer}>
+        <Button size="small" onClick={() => setPageState(States.ABOUT)}>
+          Om kampanjen
+        </Button>
+        <Button wrapperClassName={styles.spinBtn} onClick={() => doSpin()}>
+          Spinn
+        </Button>
+        <Button
+          size="small"
+          onClick={() => {
+            setPageState(States.PRIZES)
+          }}
+        >
+          Gevinster
+        </Button>
+      </div>
+      <div id="party" />
+    </div>
   )
 }
 
