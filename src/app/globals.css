@@ -153,3 +153,10 @@ header {
     transform: scale(1) translateX(0);
   }
 }
+
+.greenpeace {
+  bottom: 20px;
+  position: fixed;
+  width: 200px;
+  height: 33px;
+}
