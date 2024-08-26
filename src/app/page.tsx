@@ -5,7 +5,7 @@ import styles from './page.module.css'
 export default function Home() {
   return (
     <main className={styles.main}>
-      <header id="header">
+      <header id="header" className="header-enter">
         <Image
           src="/assets/dsb-logo.png"
           alt="Deep sea betting logo"
