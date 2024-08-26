@@ -76,6 +76,11 @@
     flex-direction: row;
     justify-content: space-between;
     transform: translateY(0%);
+    bottom: 30px;
+  }
+
+  @media (min-width: 1000px) {
+    bottom: -20px;
   }
 }
 
