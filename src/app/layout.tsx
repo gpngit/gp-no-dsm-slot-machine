@@ -3,6 +3,7 @@ import { Work_Sans } from 'next/font/google'
 import localFont from 'next/font/local'
 import Image from 'next/image'
 import './globals.css'
+import styles from './page.module.css'
 
 const worksans = Work_Sans({ subsets: ['latin'], variable: '--font-work-sans' })
 const wimp = localFont({
@@ -24,38 +25,26 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${worksans.variable} ${wimp.variable}`}>
       <body>
-        <div
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-          }}
-        >
-          <Image
-            fill
-            quality={90}
-            src="/assets/bg-desktop.png"
-            alt="Deep sea betting logo"
-            objectFit="cover"
-            priority
-            style={{
-              objectFit: 'cover',
-            }}
-            sizes="100vw"
-          />
-        </div>
-        {children}
+        <Image
+          fill
+          quality={90}
+          src="/assets/bg-desktop.png"
+          alt="Background"
+          objectFit="cover"
+          priority
+          sizes="100vw"
+        />
         <div className="greenpeace">
           <Image
             src="/assets/greenpeace.png"
             alt="Greenpeace"
-            fill
             priority
             quality={100}
+            width={200}
+            height={33}
           />
         </div>
+        {children}
       </body>
     </html>
   )
