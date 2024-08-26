@@ -25,8 +25,8 @@ export const Prizes: FC = () => {
               height={66}
             />
           </div>
-          <h3 className={styles.heading}>Fiskeskjelett</h3>
-          <p className={styles.content}>Ødelegger viktig fiskebestandområde</p>
+          {/* <h3 className={styles.heading}>Fiskeskjelett</h3> */}
+          <p className={styles.content}>Viktig fiskebestandområde ødelegges</p>
         </div>
         <div className={styles.part}>
           <div className={styles.image}>
@@ -47,8 +47,8 @@ export const Prizes: FC = () => {
               height={66}
             />
           </div>
-          <h3 className={styles.heading}>Co2</h3>
-          <p className={styles.content}>Forsurer havet</p>
+          {/* <h3 className={styles.heading}>Co2</h3> */}
+          <p className={styles.content}>Havet forsures</p>
         </div>
         <div className={styles.part}>
           <div className={styles.image}>
@@ -69,8 +69,8 @@ export const Prizes: FC = () => {
               height={66}
             />
           </div>
-          <h3 className={styles.heading}>Sjøstjerne</h3>
-          <p className={styles.content}>Utsletter en koloni med sjøstjerner</p>
+          {/* <h3 className={styles.heading}>Sjøstjerne</h3> */}
+          <p className={styles.content}>Koloni med sjøstjerner utslettes</p>
         </div>
       </div>
       <div className={styles.row}>
@@ -93,8 +93,8 @@ export const Prizes: FC = () => {
               height={66}
             />
           </div>
-          <h3 className={styles.heading}>Anemone</h3>
-          <p className={styles.content}>Utrydder unik dypvannsart</p>
+          {/* <h3 className={styles.heading}>Anemone</h3> */}
+          <p className={styles.content}>Unik dypvannsart utryddes</p>
         </div>
         <div className={styles.part}>
           <div className={styles.image}>
@@ -115,9 +115,9 @@ export const Prizes: FC = () => {
               height={66}
             />
           </div>
-          <h3 className={styles.heading}>Dumbo</h3>
+          {/* <h3 className={styles.heading}>Dumbo</h3> */}
           <p className={styles.content}>
-            Ødelegger habitatet til dumboblekkspruten
+            Habitatet til dumboblekkspruten ødelegges
           </p>
         </div>
         <div className={styles.part}>
@@ -139,8 +139,8 @@ export const Prizes: FC = () => {
               height={66}
             />
           </div>
-          <h3 className={styles.heading}>Nebbhval</h3>
-          <p className={styles.content}>Skremmer bort nebbhvalen</p>
+          {/* <h3 className={styles.heading}>Nebbhval</h3> */}
+          <p className={styles.content}>Nebbhvalen fordrives</p>
         </div>
       </div>
     </div>

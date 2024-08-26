@@ -28,12 +28,12 @@ export const Won: FC<{
       case 'fish':
         return {
           image: `/assets/slots/fish.png`,
-          heading: ' Du har ødelagt oppvekstområdet til en viktig fiskebestand',
+          heading: 'Du har ødelagt oppvekstområdet til en viktig fiskebestand',
         }
       case 'whale':
         return {
           image: `/assets/slots/whale.png`,
-          heading: 'Du har skremt bort den sjeldne nebbhvalen',
+          heading: 'Du har fordrevet den sjeldne nebbhvalen',
         }
       default:
         return {
