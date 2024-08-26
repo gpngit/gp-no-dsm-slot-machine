@@ -27,6 +27,7 @@
   flex-direction: column;
   max-width: 80%;
   position: relative;
+  z-index: 2;
 
   @media (min-width: 800px) {
     max-width: 1000px;
