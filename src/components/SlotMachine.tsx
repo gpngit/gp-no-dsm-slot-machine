@@ -1,6 +1,7 @@
 'use client'
 
 import { getRandomNumber } from '@/utils/number'
+import confetti from 'canvas-confetti'
 import Image from 'next/image'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Button } from './Button'
@@ -9,7 +10,6 @@ import { Prizes } from './Prizes'
 import styles from './slotmachine.module.css'
 import SlotMachineReel from './SlotMachineReel'
 import { Won } from './Won'
-import confetti from 'canvas-confetti'
 
 const SLOTS = 10
 const SLOT_HEIGHT = 180
@@ -171,7 +171,8 @@ function SlotMachine() {
           dyphavet.
         </p>
         <div className={styles.aboutBtns}>
-          <a href="#">Les mer om kampanjen</a>
+          <a href="#">Les mer</a> om gruvedrift på havbunnen og arbeidet vårt.
+          <br />
           <a
             href="https://www.greenpeace.org/norway/vaer-med/stopp-gruvedrift-pa-havbunnen/"
             target="_blank"
