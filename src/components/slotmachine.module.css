@@ -89,11 +89,26 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 20px;
+  top: -5px;
 
   @media (min-width: 800px) {
-    top: 80px;
+    top: 20px;
   }
+}
+.spinBtn a {
+  display: block;
+  width: 200px;
+  height: 115px;
+  position: relative;
+
+  @media (min-width: 800px) {
+    width: 350px;
+    height: 200px;
+  }
+}
+.spinBtn img {
+  width: 100% !important;
+  height: auto !important;
 }
 
 .main {
@@ -151,10 +166,10 @@
 .frameBg {
   position: absolute;
   height: 100%;
-  width: 1300px;
-  height: 790px;
+  width: 1350px;
+  height: 800px;
   opacity: 0;
-  top: -220px;
+  top: -250px;
   animation: scaleUp 0.8s 0.4s forwards;
 
   @media (max-width: 1000px) {

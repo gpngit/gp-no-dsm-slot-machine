@@ -2,6 +2,9 @@
   max-width: 90%;
 }
 @media screen and (min-width: 800px) {
+  .wrapper {
+    margin-top: -180px;
+  }
 }
 
 .slots {
@@ -18,20 +21,24 @@
 }
 @media screen and (min-width: 800px) {
   .slots img {
-    max-width: 180px;
+    max-width: 150px;
   }
 }
 
 .congrats {
   max-width: 90%;
   height: auto;
-  margin-top: 20px;
+  margin-top: 0;
 }
 .intro {
   font-family: var(--font-wimp);
   color: #fff;
   font-size: 30px;
 }
+.intro p {
+  margin: 0;
+}
+
 @media screen and (min-width: 800px) {
   .intro {
     font-size: 40px;
@@ -41,6 +48,8 @@
 .body {
   color: #fff;
   font-size: 20px;
+  max-width: 70%;
+  margin: 0 auto;
 }
 
 .btns {

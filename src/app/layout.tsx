@@ -3,7 +3,6 @@ import { Work_Sans } from 'next/font/google'
 import localFont from 'next/font/local'
 import Image from 'next/image'
 import './globals.css'
-import styles from './page.module.css'
 
 const worksans = Work_Sans({ subsets: ['latin'], variable: '--font-work-sans' })
 const wimp = localFont({
@@ -40,8 +39,8 @@ export default function RootLayout({
             alt="Greenpeace"
             priority
             quality={100}
-            width={200}
-            height={33}
+            width={352}
+            height={58}
           />
         </div>
         {children}

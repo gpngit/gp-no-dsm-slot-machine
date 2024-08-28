@@ -46,9 +46,9 @@ export const Won: FC<{
   return (
     <div className={styles.wrapper}>
       <div className={styles.slots}>
-        <Image src={image} width="180" height="180" alt="Star" quality={100} />
-        <Image src={image} width="180" height="180" alt="Star" quality={100} />
-        <Image src={image} width="180" height="180" alt="Star" quality={100} />
+        <Image src={image} width="150" height="150" alt="Star" quality={100} />
+        <Image src={image} width="150" height="150" alt="Star" quality={100} />
+        <Image src={image} width="150" height="150" alt="Star" quality={100} />
       </div>
       <Image
         src="/assets/congrats.png"

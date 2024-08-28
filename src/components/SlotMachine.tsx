@@ -25,7 +25,7 @@ enum States {
 
 function SlotMachine() {
   const WIN_PROBABILITY = useRef(0.1)
-  const [pageState, setPageState] = useState(States.SPIN)
+  const [pageState, setPageState] = useState(States.WON)
   const [mounted, setMounted] = useState(false)
   const [spin, setSpin] = useState(false)
   const [shouldWin, setShouldWin] = useState(
@@ -49,10 +49,10 @@ function SlotMachine() {
       header?.classList.remove('header-leave')
     }
     if (pageState === States.ABOUT) {
-      const header = document.getElementById('header')
-      header?.classList.add('header-leave')
-      header?.classList.remove('header-enter')
-      header?.classList.remove('header-animation')
+      // const header = document.getElementById('header')
+      // header?.classList.add('header-leave')
+      // header?.classList.remove('header-enter')
+      // header?.classList.remove('header-animation')
     }
     if (pageState === States.PRIZES) {
       const header = document.getElementById('header')
@@ -209,6 +209,7 @@ function SlotMachine() {
             fill
             alt="Slot machine"
             priority
+            quality={100}
           />
         </div>
         <div className={styles.cutOut}>
@@ -263,9 +264,11 @@ function SlotMachine() {
         <Button size="small" onClick={() => setPageState(States.ABOUT)}>
           Om kampanjen
         </Button>
-        <Button wrapperClassName={styles.spinBtn} onClick={() => doSpin()}>
-          Spinn
-        </Button>
+        <div className={styles.spinBtn}>
+          <a onClick={() => doSpin()}>
+            <Image src="/assets/playBtn.png" alt="play button" fill />
+          </a>
+        </div>
         <Button
           size="small"
           onClick={() => {

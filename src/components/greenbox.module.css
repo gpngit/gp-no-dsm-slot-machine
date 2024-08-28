@@ -39,14 +39,21 @@
   padding: 50px 10px 30px 10px;
   font-size: 18px;
   line-height: 28px;
-  max-height: 40vh;
-  overflow: scroll;
+  max-height: 50vh;
+  overflow: hidden;
+
+  scrollbar-width: thin;
 
   @media (min-width: 800px) {
-    padding: 8% 5% 8%;
+    padding: 2% 1% 2%;
     font-size: 24px;
     line-height: 31px;
   }
+}
+.innerScroll {
+  overflow: scroll;
+  padding: 4% 4% 4%;
+  max-height: 40vh;
 }
 
 .headingAbove {
@@ -78,8 +85,10 @@
   bottom: -28px;
   left: 50%;
   transform: translateX(-50%);
+  width: 205px;
+  height: 52px;
 
   @media (min-width: 800px) {
-    bottom: -38px;
+    bottom: -28px;
   }
 }
