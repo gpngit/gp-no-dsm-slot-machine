@@ -138,5 +138,9 @@ header {
   z-index: 0;
   left: 50%;
   transform: translateX(-50%);
-  max-width: 80%;
+}
+
+.greenpeace img {
+  max-width: 50vw;
+  height: auto;
 }

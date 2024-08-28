@@ -36,24 +36,25 @@
 .inner {
   background: linear-gradient(180deg, #50f274 2.94%, #006038 85.32%);
   border-radius: 34px;
-  padding: 50px 10px 30px 10px;
+  padding: 20px 10px 30px 10px;
   font-size: 18px;
   line-height: 28px;
-  max-height: 50vh;
+  max-height: 60vh;
   overflow: hidden;
 
   scrollbar-width: thin;
 
   @media (min-width: 800px) {
-    padding: 2% 1% 2%;
+    padding: 1% 1% 6%;
     font-size: 24px;
     line-height: 31px;
+    max-height: 50vh;
   }
 }
 .innerScroll {
   overflow: scroll;
   padding: 4% 4% 4%;
-  max-height: 40vh;
+  max-height: 50vh;
 }
 
 .headingAbove {
@@ -91,4 +92,7 @@
   @media (min-width: 800px) {
     bottom: -28px;
   }
+}
+.btnWrapper a {
+  cursor: pointer;
 }

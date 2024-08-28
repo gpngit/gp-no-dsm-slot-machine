@@ -49,10 +49,10 @@ function SlotMachine() {
       header?.classList.remove('header-leave')
     }
     if (pageState === States.ABOUT) {
-      // const header = document.getElementById('header')
-      // header?.classList.add('header-leave')
-      // header?.classList.remove('header-enter')
-      // header?.classList.remove('header-animation')
+      const header = document.getElementById('header')
+      header?.classList.add('header-leave')
+      header?.classList.remove('header-enter')
+      header?.classList.remove('header-animation')
     }
     if (pageState === States.PRIZES) {
       const header = document.getElementById('header')

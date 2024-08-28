@@ -58,6 +58,11 @@
   position: absolute;
   bottom: 0;
   right: 0;
+  width: 60px;
+
+  @media screen and (min-width: 800px) {
+    width: 80px;
+  }
 }
 .heading {
   margin: 0 0 6px;
