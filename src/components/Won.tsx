@@ -65,7 +65,8 @@ export const Won: FC<{
       <div className={styles.body}>
         <p>
           Fortsett å gamble med livet på havbunnen, så kanskje du ødelegger enda
-          mer av det maritime økosystemet!
+          mer av havet! Eller stopp det farlige spillet og signer oppropet for å
+          beskytte dyphavet.
         </p>
       </div>
       <div className={styles.btns}>
@@ -74,7 +75,7 @@ export const Won: FC<{
           as={'a'}
           // Cant be bothered typing this...
           // @ts-ignore
-          href="https://www.greenpeace.org/norway/vaer-med/stopp-gruvedrift-pa-havbunnen/"
+          href="https://www.greenpeace.org/norway/vaer-med/stopp-gruvedrift-pa-havbunnen/?utm_medium=referral&utm_source=deepseabetting&utm_campaign=no_pg_oceans&utm_content=no_pg_dsm&utm_term=none_none_none_slot-machine-site-after-game"
           // @ts-ignore
           target="_blank"
         >

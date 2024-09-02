@@ -143,6 +143,14 @@ export const Prizes: FC = () => {
           <p className={styles.content}>Nebbhvalen fordrives</p>
         </div>
       </div>
+      <div className={styles.row}>
+        <p style={{ maxWidth: '80%' }}>
+          Vi vet fortsatt for lite om dyphavet til å fastslå de nøyaktige
+          konsekvensene av gruvedrift på havbunnen, men mange forskere er veldig
+          bekymret for industrien. Her illustrerer vi noen av sjansene vi tar
+          ved å åpne for gruvedrift på havbunnen.
+        </p>
+      </div>
     </div>
   )
 }
