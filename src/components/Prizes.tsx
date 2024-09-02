@@ -144,7 +144,7 @@ export const Prizes: FC = () => {
         </div>
       </div>
       <div className={styles.row}>
-        <p style={{ maxWidth: '80%' }}>
+        <p style={{ maxWidth: '80%', margin: '0 auto' }}>
           Vi vet fortsatt for lite om dyphavet til å fastslå de nøyaktige
           konsekvensene av gruvedrift på havbunnen, men mange forskere er veldig
           bekymret for industrien. Her illustrerer vi noen av sjansene vi tar
