@@ -58,7 +58,7 @@
 }
 
 .headingAbove {
-  font-family: var(--font-wimp);
+  font-family: var(--font-jomhuria);
   text-transform: uppercase;
   font-size: 46px;
   color: #fff;
@@ -69,7 +69,7 @@
   }
 }
 .heading {
-  font-family: var(--font-wimp);
+  font-family: var(--font-jomhuria);
   text-transform: uppercase;
   font-size: 40px;
   color: #fff;

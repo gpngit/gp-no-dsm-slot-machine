@@ -1,14 +1,14 @@
+import { GoogleTagManager } from '@next/third-parties/google'
 import type { Metadata } from 'next'
-import { Work_Sans } from 'next/font/google'
-import localFont from 'next/font/local'
+import { Jomhuria, Work_Sans } from 'next/font/google'
 import Image from 'next/image'
 import './globals.css'
 
 const worksans = Work_Sans({ subsets: ['latin'], variable: '--font-work-sans' })
-const wimp = localFont({
-  src: './wimp.woff2',
-  variable: '--font-wimp',
-  display: 'swap',
+const jomhuria = Jomhuria({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-jomhuria',
 })
 
 export const metadata: Metadata = {
@@ -22,7 +22,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${worksans.variable} ${wimp.variable}`}>
+    <html lang="en" className={`${worksans.variable} ${jomhuria.variable}`}>
+      <GoogleTagManager gtmId="GTM-W3S57FK" />
       <body>
         <Image
           fill

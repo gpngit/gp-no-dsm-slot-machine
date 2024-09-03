@@ -153,7 +153,7 @@ function SlotMachine() {
         btnText="Spill"
         onBtnClick={() => setPageState(States.SPIN)}
         heading='"Gevinster"'
-        renderHeadingAbove={true}
+        renderHeadingAbove={false}
         withLogo={false}
       >
         <Prizes />
@@ -170,19 +170,19 @@ function SlotMachine() {
       >
         <p>
           Visste du at Norge vil starte gruvedrift på havbunnen i sårbare
-          Arktis? Dette er gambling med naturen der vi har alt å tape.
-          Greenpeace jobber for å stoppe dette og beskytte livet i Arktis og i
-          dyphavet.
+          Arktis? Dette er gambling med naturen, og vi har alt å tape.Greenpeace
+          jobber for å stoppe dette og beskytte livet i Arktis og i dyphavet.
         </p>
         <div className={styles.aboutBtns}>
-          <a href="#">Les mer</a> om gruvedrift på havbunnen og arbeidet vårt.
-          <br />
-          <a
-            href="https://www.greenpeace.org/norway/vaer-med/stopp-gruvedrift-pa-havbunnen/"
-            target="_blank"
-          >
-            Signer oppropet
+          Les mer og signer oppropet for å beskytte dyphavet{' '}
+          <a href="https://www.greenpeace.org/norway/vaer-med/stopp-gruvedrift-pa-havbunnen/?utm_medium=referral&utm_source=deepseabetting&utm_campaign=no_pg_oceans&utm_content=no_pg_dsm&utm_term=none_none_none_slot-machine-site-about-campaign">
+            her
           </a>
+          <br />
+          <p style={{ fontSize: 14 }}>
+            Har du et spilleproblem? Du kan få hjelp og noen å snakke med{' '}
+            <a href="https://hjelpelinjen.no/">her</a>
+          </p>
         </div>
       </GreenBox>
     )
