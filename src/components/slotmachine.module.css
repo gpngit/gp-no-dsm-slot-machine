@@ -195,16 +195,17 @@
 }
 
 .frameBg {
-  position: absolute;
-  height: 100%;
-  width: 1350px;
-  height: 800px;
-  opacity: 0;
-  top: -250px;
-  animation: scaleUp 0.8s 0.4s forwards;
+  display: none;
 
-  @media (max-width: 1000px) {
-    display: none;
+  @media (min-width: 1000px) {
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 1350px;
+    height: 800px;
+    opacity: 0;
+    top: -250px;
+    animation: scaleUp 0.8s 0.4s forwards;
   }
 }
 
