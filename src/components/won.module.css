@@ -21,7 +21,7 @@
 }
 @media screen and (min-width: 800px) {
   .slots img {
-    max-width: 150px;
+    max-width: 140px;
   }
 }
 
@@ -32,6 +32,7 @@
 }
 .intro {
   font-family: var(--font-jomhuria);
+  font-weight: 100;
   color: #fff;
   font-size: 30px;
 }
@@ -41,7 +42,7 @@
 
 @media screen and (min-width: 800px) {
   .intro {
-    font-size: 40px;
+    font-size: 60px;
   }
 }
 

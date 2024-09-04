@@ -27,6 +27,7 @@ function SlotMachine() {
   const WIN_PROBABILITY = useRef(0.1)
   const [pageState, setPageState] = useState(States.SPIN)
   const [mounted, setMounted] = useState(false)
+  const [animatSpinBtn, setAnimateSpinBtn] = useState(false)
   const [spin, setSpin] = useState(false)
   const [shouldWin, setShouldWin] = useState(
     Math.random() < WIN_PROBABILITY.current
@@ -79,6 +80,9 @@ function SlotMachine() {
     WIN_PROBABILITY.current = WIN_PROBABILITY.current * 1.5
     setShowAfterSpinModal(false)
 
+    // @ts-ignore
+    document.getElementById('spin-audio').play()
+
     if (firstRun) {
       setSpin(true)
     } else {
@@ -114,6 +118,9 @@ function SlotMachine() {
             }, i * 100)
           }
 
+          // @ts-ignore
+          document.getElementById('winner-audio').play()
+
           confetti({
             shapes: ['circle'],
             particleCount: 460,
@@ -134,6 +141,15 @@ function SlotMachine() {
             }
           }, 2000)
           WIN_PROBABILITY.current = 0.2
+        } else {
+          if (!firstRun) {
+            setTimeout(() => {
+              setAnimateSpinBtn(true)
+              setTimeout(() => {
+                setAnimateSpinBtn(false)
+              }, 800)
+            }, 20)
+          }
         }
       }
     },
@@ -264,7 +280,11 @@ function SlotMachine() {
         <Button size="small" onClick={() => setPageState(States.ABOUT)}>
           Om kampanjen
         </Button>
-        <div className={styles.spinBtn}>
+        <div
+          className={`${styles.spinBtn} ${
+            animatSpinBtn ? styles.animateSpinBtn : ''
+          }`}
+        >
           <a onClick={() => doSpin()}>
             <Image src="/assets/playBtn.png" alt="play button" fill />
           </a>
@@ -279,6 +299,8 @@ function SlotMachine() {
         </Button>
       </div>
       <div id="party" />
+      <audio src="/winner.ogg" id="winner-audio" autoPlay={false} />
+      <audio src="/spin.ogg" id="spin-audio" autoPlay={false} />
     </div>
   )
 }
