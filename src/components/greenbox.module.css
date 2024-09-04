@@ -69,10 +69,10 @@
 }
 .heading {
   font-family: var(--font-jomhuria);
-  font-size: 40px;
+  font-size: 80px;
   font-weight: 100;
   color: #fff;
-  margin: 0 0 10px;
+  margin: 20px 0 10px;
 
   @media (min-width: 800px) {
     font-size: 140px;
