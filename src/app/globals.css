@@ -34,6 +34,10 @@ header {
   @media (min-width: 1000px) {
     width: 500px;
   }
+
+  @media (max-width: 1300px) and (min-width: 1000px) {
+    top: -105px;
+  }
 }
 
 .header-enter {
