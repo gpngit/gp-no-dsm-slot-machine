@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import { FC, useMemo } from 'react'
-import { Button } from './Button'
 import { SLOT_TYPES } from './SlotMachine'
 import styles from './won.module.css'
 
@@ -70,17 +69,25 @@ export const Won: FC<{
         </p>
       </div>
       <div className={styles.btns}>
-        <Button onClick={() => onPlayAgain()}>Spill igjen</Button>
-        <Button
-          as={'a'}
-          // Cant be bothered typing this...
-          // @ts-ignore
+        <a href="#" onClick={() => onPlayAgain()}>
+          <Image
+            height={64}
+            width={194}
+            src="/assets/playAgainBtn.png"
+            alt="play button"
+          />
+        </a>
+        <a
           href="https://www.greenpeace.org/norway/vaer-med/stopp-gruvedrift-pa-havbunnen/?utm_medium=referral&utm_source=deepseabetting&utm_campaign=no_pg_oceans&utm_content=no_pg_dsm&utm_term=none_none_none_slot-machine-site-after-game"
-          // @ts-ignore
           target="_blank"
         >
-          Signer oppropet
-        </Button>
+          <Image
+            height={64}
+            width={284}
+            src="/assets/signBtn.png"
+            alt="play button"
+          />
+        </a>
       </div>
     </div>
   )

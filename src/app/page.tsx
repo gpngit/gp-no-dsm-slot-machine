@@ -13,6 +13,7 @@ export default function Home() {
           height="319"
           layout="responsive"
           priority
+          style={{ scale: 0.9 }}
         />
       </header>
       <SlotMachine />

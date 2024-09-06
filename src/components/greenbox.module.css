@@ -59,6 +59,9 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+.innerScroll::-webkit-scrollbar {
+  display: none;
+}
 
 .headingAbove {
   font-family: var(--font-jomhuria);

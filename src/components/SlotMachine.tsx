@@ -161,7 +161,10 @@ function SlotMachine() {
     return (
       <Won
         slotType={actualWinType || winType}
-        onPlayAgain={() => setPageState(States.SPIN)}
+        onPlayAgain={() => {
+          setActualWinType('')
+          setPageState(States.SPIN)
+        }}
       />
     )
   }
