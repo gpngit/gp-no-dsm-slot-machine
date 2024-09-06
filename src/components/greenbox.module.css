@@ -55,6 +55,9 @@
   overflow: scroll;
   padding: 4% 4% 4%;
   max-height: 50vh;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .headingAbove {
