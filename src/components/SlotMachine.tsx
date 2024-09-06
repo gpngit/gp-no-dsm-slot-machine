@@ -4,7 +4,6 @@ import { getRandomNumber } from '@/utils/number'
 import confetti from 'canvas-confetti'
 import Image from 'next/image'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { Button } from './Button'
 import { GreenBox } from './GreenBox'
 import { Prizes } from './Prizes'
 import styles from './slotmachine.module.css'
@@ -277,9 +276,14 @@ function SlotMachine() {
         </div>
       </div>
       <div className={styles.footer}>
-        <Button size="small" onClick={() => setPageState(States.ABOUT)}>
-          Om kampanjen
-        </Button>
+        <a onClick={() => setPageState(States.ABOUT)}>
+          <Image
+            height={54}
+            width={200}
+            src="/assets/aboutBtn.png"
+            alt="play button"
+          />
+        </a>
         <div
           className={`${styles.spinBtn} ${
             animatSpinBtn ? styles.animateSpinBtn : ''
@@ -289,17 +293,17 @@ function SlotMachine() {
             <Image src="/assets/playBtn.png" alt="play button" fill />
           </a>
         </div>
-        <Button
-          size="small"
-          onClick={() => {
-            setPageState(States.PRIZES)
-          }}
-        >
-          Gevinster
-        </Button>
+        <a onClick={() => setPageState(States.PRIZES)}>
+          <Image
+            height={54}
+            width={160}
+            src="/assets/prizesBtn.png"
+            alt="play button"
+          />
+        </a>
       </div>
       <div id="party" />
-      <audio src="/winner.ogg" id="winner-audio" autoPlay={false} />
+      <audio src="/winner.mp3" id="winner-audio" autoPlay={false} /> 
       <audio src="/spin.ogg" id="spin-audio" autoPlay={false} />
     </div>
   )

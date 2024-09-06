@@ -34,7 +34,8 @@
   font-family: var(--font-jomhuria);
   font-weight: 100;
   color: #fff;
-  font-size: 30px;
+  font-size: 40px;
+  line-height: 30px;
 }
 .intro p {
   margin: 0;
@@ -43,6 +44,7 @@
 @media screen and (min-width: 800px) {
   .intro {
     font-size: 60px;
+    line-height: 50px;
   }
 }
 

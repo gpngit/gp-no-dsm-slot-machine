@@ -85,6 +85,10 @@
   }
 }
 
+.footer > a {
+  cursor: pointer;
+}
+
 .spinBtn {
   position: absolute;
   left: 50%;
