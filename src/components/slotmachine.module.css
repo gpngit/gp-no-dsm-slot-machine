@@ -335,9 +335,6 @@
 
 .altatape {
   position: absolute;
-  width: 819px;
-  height: 135px;
-  bottom: 80px;
   opacity: 0;
   margin: 0 auto;
   animation-name: scaleUp, wave;
@@ -349,7 +346,7 @@
 
   width: 309px;
   height: 50px;
-  bottom: 125px;
+  bottom: 155px;
 
   @media (min-width: 600px) {
     width: 450px;
