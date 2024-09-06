@@ -21,7 +21,7 @@
   }
 
   @media (max-width: 1300px) and (min-width: 1000px) {
-    transform: scale(0.8) translateY(30px);
+    transform: scale(0.75) translateY(30px);
     min-height: 740px;
   }
 }
