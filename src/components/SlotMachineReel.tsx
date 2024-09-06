@@ -4,14 +4,13 @@ import { getRandomNumber } from '@/utils/number'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import styles from './slotmachine.module.css'
+import { SLOT_TYPES } from './SlotMachine'
 
 const SLOTS = 10
 const SLOT_HEIGHT = 180
 const SLOT_ANGLE = 360 / SLOTS
 const REEL_RADIUS = Math.round(SLOT_HEIGHT / 2 / Math.tan(Math.PI / SLOTS))
 const SPIN_MAX_DURATION = 3
-
-const SLOT_TYPES = ['anemone', 'dumbo', 'co2', 'fish', 'star', 'whale']
 
 const imageSize = 200
 

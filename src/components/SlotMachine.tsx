@@ -33,6 +33,7 @@ function SlotMachine() {
     Math.random() < WIN_PROBABILITY.current
   )
   const [winType, setWinType] = useState(SLOT_TYPES[getRandomNumber(0, 5)])
+  const [actualWinType, setActualWinType] = useState('')
   const [firstRun, setFirstRun] = useState(true)
   const [showAfterSpinModal, setShowAfterSpinModal] = useState(false)
   const complete = useRef(0)
@@ -67,8 +68,10 @@ function SlotMachine() {
     const header = document.getElementById('header')
     header?.classList.add('header-animation')
     header?.classList.remove('header-enter')
+    currentSlot.current = false
     setShouldWin(Math.random() < WIN_PROBABILITY.current)
     setWinType(SLOT_TYPES[getRandomNumber(0, 5)])
+    setActualWinType('')
     setFirstRun(false)
     complete.current = 0
     WIN_PROBABILITY.current = WIN_PROBABILITY.current * 1.5
@@ -95,12 +98,15 @@ function SlotMachine() {
         header?.classList.remove('header-animation')
         complete.current = 0
 
+        const actualWin = typeof currentSlot.current === 'number'
+
         if (!spin && !firstRun) {
           return setSpin(true)
-        } else if (
-          spin &&
-          (shouldWin || typeof currentSlot.current === 'number')
-        ) {
+        } else if (spin && (shouldWin || actualWin)) {
+          if (actualWin) {
+            console.log('Actual win 🎉🎉🎉')
+            setActualWinType(SLOT_TYPES[currentSlot.current as number])
+          }
           const reel1 = document.getElementById('reel1')
           const reel2 = document.getElementById('reel2')
           const reel3 = document.getElementById('reel3')
@@ -154,7 +160,10 @@ function SlotMachine() {
 
   if (pageState === States.WON) {
     return (
-      <Won slotType={winType} onPlayAgain={() => setPageState(States.SPIN)} />
+      <Won
+        slotType={actualWinType || winType}
+        onPlayAgain={() => setPageState(States.SPIN)}
+      />
     )
   }
   if (pageState === States.PRIZES) {
