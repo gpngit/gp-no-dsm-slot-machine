@@ -34,6 +34,7 @@ export default function RootLayout({
           priority
           sizes="100vw"
         />
+        <div className="bg-overlay" id="bg-overlay"></div>
         <div className="greenpeace">
           <Image
             src="/assets/greenpeace.png"

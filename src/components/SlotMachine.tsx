@@ -48,18 +48,28 @@ function SlotMachine() {
       header?.classList.add('header-enter')
       header?.classList.remove('header-animation')
       header?.classList.remove('header-leave')
+      const bgOverlay = document.getElementById('bg-overlay')
+      bgOverlay?.classList.remove('show')
     }
     if (pageState === States.PRIZES) {
       const header = document.getElementById('header')
       header?.classList.add('header-leave')
       header?.classList.remove('header-enter')
       header?.classList.remove('header-animation')
+      const bgOverlay = document.getElementById('bg-overlay')
+      bgOverlay?.classList.add('show')
+    }
+    if (pageState === States.ABOUT) {
+      const bgOverlay = document.getElementById('bg-overlay')
+      bgOverlay?.classList.add('show')
     }
     if (pageState === States.WON) {
       const header = document.getElementById('header')
       header?.classList.add('header-leave')
       header?.classList.remove('header-enter')
       header?.classList.remove('header-animation')
+      const bgOverlay = document.getElementById('bg-overlay')
+      bgOverlay?.classList.add('show')
     }
   }, [pageState])
 
@@ -103,6 +113,8 @@ function SlotMachine() {
           return setSpin(true)
         } else if (spin && (shouldWin || actualWin)) {
           if (actualWin) {
+            const bgOverlay = document.getElementById('bg-overlay')
+            bgOverlay?.classList.add('show')
             console.log('Actual win 🎉🎉🎉')
             setActualWinType(SLOT_TYPES[currentSlot.current as number])
           }
