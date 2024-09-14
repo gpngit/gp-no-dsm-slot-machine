@@ -8,12 +8,16 @@
 }
 
 .slots {
-  max-width: 90%;
+  max-width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
   margin: 0 auto;
+
+  @media screen and (min-width: 800px) {
+    max-width: 90%;
+  }
 }
 .slots img {
   width: 33%;
@@ -36,6 +40,7 @@
   color: #fff;
   font-size: 40px;
   line-height: 30px;
+  margin-top: -10px;
 }
 .intro p {
   margin: 0;
@@ -50,12 +55,13 @@
 
 .body {
   color: #fff;
-  font-size: 20px;
+  font-size: 18px;
 }
 @media screen and (min-width: 800px) {
   .body {
     max-width: 70%;
     margin: 0 auto;
+    font-size: 20px;
   }
 }
 
