@@ -101,6 +101,7 @@
   left: 50%;
   transform: translateX(-50%);
   top: -5px;
+  text-align: center;
 
   @media (min-width: 800px) {
     top: 20px;

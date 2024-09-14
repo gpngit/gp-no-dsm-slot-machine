@@ -25,6 +25,7 @@ export const GreenBox: FC<{
       <div className={styles.wrapper}>
         <div className={styles.inner}>
           <div className={styles.innerScroll}>
+            {withLogo && <div className={styles.mobileSpacer}></div>}
             {heading && !renderHeadingAbove && (
               <h1 className={styles.heading}>{heading}</h1>
             )}

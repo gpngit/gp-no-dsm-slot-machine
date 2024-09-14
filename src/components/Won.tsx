@@ -64,8 +64,7 @@ export const Won: FC<{
       <div className={styles.body}>
         <p>
           Fortsett å gamble med livet på havbunnen, så kanskje du ødelegger enda
-          mer av havet! Eller stopp det farlige spillet og signer oppropet for å
-          beskytte dyphavet.
+          mer av havet! Eller stopp det farlige spillet ved å signere oppropet.
         </p>
       </div>
       <div className={styles.btns}>

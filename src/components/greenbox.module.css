@@ -51,6 +51,13 @@
     max-height: 50vh;
   }
 }
+
+.mobileSpacer {
+  height: 90px;
+  @media (min-width: 800px) {
+    height: 0;
+  }
+}
 .innerScroll {
   overflow: scroll;
   padding: 4% 4% 4%;
