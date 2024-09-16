@@ -4,7 +4,7 @@ import { SLOT_TYPES } from './SlotMachine'
 import styles from './won.module.css'
 
 import penger1 from '/public/assets/penger1.svg'
-import pengerMobile from '/public/assets/pengerMobile.svg'
+import pengerMobile from '/public/assets/pengerMobile.png'
 
 export const Won: FC<{
   onPlayAgain: () => void
