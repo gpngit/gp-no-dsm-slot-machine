@@ -24,7 +24,7 @@ enum States {
 
 function SlotMachine() {
   const WIN_PROBABILITY = useRef(0.1)
-  const [pageState, setPageState] = useState(States.WON)
+  const [pageState, setPageState] = useState(States.SPIN)
   const [mounted, setMounted] = useState(false)
   const [animatSpinBtn, setAnimateSpinBtn] = useState(false)
   const [spin, setSpin] = useState(false)

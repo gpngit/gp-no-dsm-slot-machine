@@ -36,8 +36,7 @@
   right: -10px;
   z-index: 0;
   width: 100%;
-  height: calc(100vh / 4);
-  max-height: 200px;
+  height: calc(100vh / 3);
   background: url('/assets/pengerMobile.png') no-repeat;
   background-size: contain;
   @media screen and (min-width: 800px) {
