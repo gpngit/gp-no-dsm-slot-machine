@@ -13,14 +13,14 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  margin: 80px auto 0;
+  margin: 60px auto 0;
 
   @media screen and (min-width: 800px) {
     max-width: 90%;
   }
 }
 .slots img {
-  width: 33%;
+  width: 30%;
   height: auto;
 }
 @media screen and (min-width: 800px) {
@@ -84,13 +84,13 @@
 .congrats {
   max-width: 90%;
   height: auto;
-  margin: 30px 0;
+  margin: 10px 0 20px;
 }
 .intro {
   font-family: var(--font-jomhuria);
   font-weight: 100;
   color: #fff;
-  font-size: 40px;
+  font-size: 36px;
   line-height: 30px;
   margin-top: -10px;
 }
@@ -107,18 +107,20 @@
 
 .body {
   color: #fff;
-  font-size: 18px;
+  font-size: 16px;
+  line-height: 24px;
 }
 @media screen and (min-width: 800px) {
   .body {
     max-width: 70%;
     margin: 0 auto;
     font-size: 20px;
+    line-height: 29px;
   }
 }
 
 .btns {
-  margin-top: 50px;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -129,5 +131,6 @@
   .btns {
     flex-direction: row;
     gap: 40px;
+    margin-top: 50px;
   }
 }
