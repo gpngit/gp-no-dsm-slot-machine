@@ -3,6 +3,9 @@ import { FC, useMemo } from 'react'
 import { SLOT_TYPES } from './SlotMachine'
 import styles from './won.module.css'
 
+import penger1 from '/public/assets/penger1.svg'
+import pengerMobile from '/public/assets/pengerMobile.svg'
+
 export const Won: FC<{
   onPlayAgain: () => void
   slotType: (typeof SLOT_TYPES)[number]
@@ -50,12 +53,55 @@ export const Won: FC<{
         <Image src={image} width="150" height="150" alt="Star" quality={100} />
       </div>
       <Image
-        src="/assets/congrats.png"
+        src="/assets/congrats.svg"
         width="800"
         height="133"
         alt="You won!"
         quality={100}
         className={styles.congrats}
+        priority
+      />
+      <Image
+        src={pengerMobile}
+        alt="You won!"
+        quality={100}
+        className={styles.pengerMobile}
+        priority
+      />
+      <Image
+        src={penger1}
+        alt="You won!"
+        width="250"
+        height="250"
+        quality={100}
+        className={styles.penger1}
+        priority
+      />
+      <Image
+        src="/assets/penger2.svg"
+        width="200"
+        height="200"
+        alt="You won!"
+        quality={100}
+        className={styles.penger2}
+        priority
+      />
+      <Image
+        src="/assets/penger3.svg"
+        width="250"
+        height="250"
+        alt="You won!"
+        quality={100}
+        className={styles.penger3}
+        priority
+      />
+      <Image
+        src="/assets/penger4.svg"
+        width="200"
+        height="200"
+        alt="You won!"
+        quality={100}
+        className={styles.penger4}
         priority
       />
       <div className={styles.intro}>

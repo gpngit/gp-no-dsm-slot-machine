@@ -13,7 +13,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  margin: 0 auto;
+  margin: 120px auto 0;
 
   @media screen and (min-width: 800px) {
     max-width: 90%;
@@ -29,10 +29,62 @@
   }
 }
 
+.pengerMobile {
+  position: absolute;
+  top: -20px;
+  left: 0px;
+  right: -10px;
+  z-index: 0;
+  width: 100%;
+  @media screen and (min-width: 800px) {
+    display: none;
+  }
+}
+.penger1 {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  z-index: 0;
+  display: none;
+  @media screen and (min-width: 800px) {
+    display: block;
+  }
+}
+.penger2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+  display: none;
+  @media screen and (min-width: 800px) {
+    display: block;
+  }
+}
+.penger3 {
+  position: absolute;
+  bottom: 0;
+  left: -10px;
+  z-index: 0;
+  display: none;
+  @media screen and (min-width: 800px) {
+    display: block;
+  }
+}
+.penger4 {
+  position: absolute;
+  bottom: 20%;
+  right: -10px;
+  z-index: 0;
+  display: none;
+  @media screen and (min-width: 800px) {
+    display: block;
+  }
+}
+
 .congrats {
   max-width: 90%;
   height: auto;
-  margin-top: 0;
+  margin: 30px 0;
 }
 .intro {
   font-family: var(--font-jomhuria);
