@@ -4,7 +4,6 @@ import { SLOT_TYPES } from './SlotMachine'
 import styles from './won.module.css'
 
 import penger1 from '/public/assets/penger1.svg'
-import pengerMobile from '/public/assets/pengerMobile.png'
 
 export const Won: FC<{
   onPlayAgain: () => void
@@ -61,13 +60,7 @@ export const Won: FC<{
         className={styles.congrats}
         priority
       />
-      <Image
-        src={pengerMobile}
-        alt="You won!"
-        quality={100}
-        className={styles.pengerMobile}
-        priority
-      />
+      <div className={styles.pengerMobile}></div>
       <Image
         src={penger1}
         alt="You won!"
