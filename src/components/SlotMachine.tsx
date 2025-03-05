@@ -4,8 +4,6 @@ import { getRandomNumber } from '@/utils/number'
 import confetti from 'canvas-confetti'
 import Image from 'next/image'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { GreenBox } from './GreenBox'
-import { Prizes } from './Prizes'
 import styles from './slotmachine.module.css'
 import SlotMachineReel from './SlotMachineReel'
 import { Won } from './Won'
@@ -17,8 +15,6 @@ export const SLOT_TYPES = ['anemone', 'dumbo', 'co2', 'fish', 'star', 'whale']
 
 enum States {
   SPIN,
-  PRIZES,
-  ABOUT,
   WON,
 }
 
@@ -50,18 +46,6 @@ function SlotMachine() {
       header?.classList.remove('header-leave')
       const bgOverlay = document.getElementById('bg-overlay')
       bgOverlay?.classList.remove('show')
-    }
-    if (pageState === States.PRIZES) {
-      const header = document.getElementById('header')
-      header?.classList.add('header-leave')
-      header?.classList.remove('header-enter')
-      header?.classList.remove('header-animation')
-      const bgOverlay = document.getElementById('bg-overlay')
-      bgOverlay?.classList.add('show')
-    }
-    if (pageState === States.ABOUT) {
-      const bgOverlay = document.getElementById('bg-overlay')
-      bgOverlay?.classList.add('show')
     }
     if (pageState === States.WON) {
       const header = document.getElementById('header')
@@ -176,48 +160,11 @@ function SlotMachine() {
         onPlayAgain={() => {
           setActualWinType('')
           setPageState(States.SPIN)
+          setTimeout(() => {
+            doSpin()
+          }, 1500)
         }}
       />
-    )
-  }
-  if (pageState === States.PRIZES) {
-    return (
-      <GreenBox
-        btnText="Spill"
-        onBtnClick={() => setPageState(States.SPIN)}
-        heading='"Gevinster"'
-        renderHeadingAbove={false}
-        withLogo={false}
-      >
-        <Prizes />
-      </GreenBox>
-    )
-  }
-  if (pageState === States.ABOUT) {
-    return (
-      <GreenBox
-        btnText="Spill"
-        onBtnClick={() => setPageState(States.SPIN)}
-        heading="Om kampanjen"
-        withLogo={true}
-      >
-        <p>
-          Visste du at Norge vil starte gruvedrift på havbunnen i sårbare
-          Arktis? Dette er gambling med naturen, og vi har alt å tape.Greenpeace
-          jobber for å stoppe dette og beskytte livet i Arktis og i dyphavet.
-        </p>
-        <div className={styles.aboutBtns}>
-          Les mer og signer oppropet for å beskytte dyphavet{' '}
-          <a href="https://www.greenpeace.org/norway/vaer-med/stopp-gruvedrift-pa-havbunnen/?utm_medium=referral&utm_source=deepseabetting&utm_campaign=no_pg_oceans&utm_content=no_pg_dsm&utm_term=none_none_none_slot-machine-site-about-campaign">
-            her
-          </a>
-          <br />
-          <p style={{ fontSize: 14 }}>
-            Har du et spilleproblem? Du kan få hjelp og noen å snakke med{' '}
-            <a href="https://hjelpelinjen.no/">her</a>
-          </p>
-        </div>
-      </GreenBox>
     )
   }
 
@@ -228,7 +175,7 @@ function SlotMachine() {
       </div>
       <div className={styles.altatape}>
         <Image
-          src="/assets/altatape.png"
+          src="/assets/gambleitall.png"
           alt="background"
           priority
           fill
@@ -275,7 +222,7 @@ function SlotMachine() {
               display: showAfterSpinModal ? 'flex' : 'none',
             }}
           >
-            <h3>{shouldWin ? 'Gratulerer!' : 'Du tapte'}</h3>
+            <h3>{shouldWin ? 'Congratulations!' : 'Du tapte'}</h3>
             <p>
               {shouldWin
                 ? 'Du har utryddet en fiskeart! Fortsett å gamble med livet på havbunnen, så kanskje du ødelegger enda mer av det maritime økosystemet!'
@@ -294,31 +241,15 @@ function SlotMachine() {
         </div>
       </div>
       <div className={styles.footer}>
-        <a onClick={() => setPageState(States.ABOUT)}>
-          <Image
-            height={54}
-            width={200}
-            src="/assets/aboutBtn.png"
-            alt="play button"
-          />
-        </a>
         <div
           className={`${styles.spinBtn} ${
             animatSpinBtn ? styles.animateSpinBtn : ''
           }`}
         >
           <a onClick={() => doSpin()}>
-            <Image src="/assets/playBtn.png" alt="play button" fill />
+            <Image src="/assets/playBtnEng.png" alt="play button" fill />
           </a>
         </div>
-        <a onClick={() => setPageState(States.PRIZES)}>
-          <Image
-            height={54}
-            width={160}
-            src="/assets/prizesBtn.png"
-            alt="play button"
-          />
-        </a>
       </div>
       <div id="party" />
       <audio src="/winner.mp3" id="winner-audio" autoPlay={false} /> 

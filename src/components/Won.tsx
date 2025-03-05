@@ -19,27 +19,29 @@ export const Won: FC<{
       case 'dumbo':
         return {
           image: `/assets/slots/dumbo.png`,
-          heading: 'Du har ødelagt habitatet til dumboblekkspruten',
+          heading:
+            'Your gambling has destroyed the habitat of the dumbo octopus',
         }
       case 'co2':
         return {
           image: `/assets/slots/co2.png`,
-          heading: 'Du har frigjort store mengder CO2 og forsuret havet',
+          heading:
+            'Your gambling has disturbed carbon stores in the deep ocean',
         }
       case 'fish':
         return {
           image: `/assets/slots/fish.png`,
-          heading: 'Du har ødelagt oppvekstområdet til en viktig fiskebestand',
+          heading: 'Your gambling has polluted important fishing grounds',
         }
       case 'whale':
         return {
           image: `/assets/slots/whale.png`,
-          heading: 'Du har fordrevet den sjeldne nebbhvalen',
+          heading: 'Your gambling has scared away the whales',
         }
       default:
         return {
           image: `/assets/slots/star.png`,
-          heading: 'Du har utslettet en koloni av sjøstjerner',
+          heading: 'Your gambling has wiped out a colony of starfish',
         }
     }
   }, [slotType])
@@ -52,7 +54,7 @@ export const Won: FC<{
         <Image src={image} width="150" height="150" alt="Star" quality={100} />
       </div>
       <Image
-        src="/assets/congrats.svg"
+        src="/assets/congratulations.svg"
         width="800"
         height="133"
         alt="You won!"
@@ -102,28 +104,18 @@ export const Won: FC<{
       </div>
       <div className={styles.body}>
         <p>
-          Fortsett å gamble med livet på havbunnen, så kanskje du ødelegger enda
-          mer av havet! Eller stopp det farlige spillet ved å signere oppropet.
+          Don{"'"}t gamble the ocean floor away! By opposing the deep sea mining
+          industry, you can ensure the oceans remain safe for all
         </p>
       </div>
       <div className={styles.btns}>
         <a href="#" onClick={() => onPlayAgain()}>
           <Image
-            height={64}
-            width={194}
-            src="/assets/playAgainBtn.png"
+            height={162}
+            width={450}
+            src="/assets/playBtnEng.png"
             alt="play button"
-          />
-        </a>
-        <a
-          href="https://www.greenpeace.org/norway/vaer-med/stopp-gruvedrift-pa-havbunnen/?utm_medium=referral&utm_source=deepseabetting&utm_campaign=no_pg_oceans&utm_content=no_pg_dsm&utm_term=none_none_none_slot-machine-site-after-game"
-          target="_blank"
-        >
-          <Image
-            height={64}
-            width={284}
-            src="/assets/signBtn.png"
-            alt="play button"
+            quality={100}
           />
         </a>
       </div>
